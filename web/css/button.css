@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+#blueButton {
+	color: rgb(255, 255, 255);
+	font-size: 12px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 13px;
+	padding-right: 13px;
+	border-width: 0px;
+	border-color: rgb(197, 229, 145);
+	border-style: solid;
+	border-radius: 0px;
+	background-color: rgb(0, 136, 255);
+}
+
+#blueButton:hover {
+	color: #ffffff;
+	background-color: #00a3fa;
+	border-color: #c5e591;
+}
+
+#redButton {
+	color: rgb(255, 255, 255);
+	font-size: 12px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 13px;
+	padding-right: 13px;
+	border-width: 0px;
+	border-color: rgb(197, 229, 145);
+	border-style: solid;
+	border-radius: 0px;
+	background-color: rgb(255, 0, 0);
+}
+
+#redButton:hover {
+	color: #ffffff;
+	background-color: #fa4646;
+	border-color: #c5e591;
+}
+
+#orangeButton {
+	color: rgb(255, 255, 255);
+	font-size: 12px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 13px;
+	padding-right: 13px;
+	border-width: 0px;
+	border-color: rgb(197, 229, 145);
+	border-style: solid;
+	border-radius: 0px;
+	background-color: rgb(255, 111, 0);
+}
+
+#orangeButton:hover {
+	color: #ffffff;
+	background-color: #ff9900;
+	border-color: #c5e591;
+}

@@ -1,0 +1,41 @@
+.sy {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #B3D1E7;
+	letter-spacing: 1px;
+}
+.lm {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.z {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+	letter-spacing: 1px;
+	line-height: 20px;
+}
+.leftbj {
+	background-color: #C0DBE6;
+}
+.lmbt {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FFFFFF;
+	letter-spacing: 2px;
+}
+.more {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #00528C;
+	letter-spacing: 1px;
+}
+.zhongbj {
+	background-color: #DDECFA;
+}
+.risht {
+	background-color: #71AEBD;
+}
