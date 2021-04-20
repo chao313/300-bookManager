@@ -11,22 +11,22 @@ import javax.servlet.ServletResponse;
 
 public class CharacterEncodingFilter implements Filter {
 
-	protected String encoding = null;// ¶¨Òå±àÂë¸ñÊ½±äÁ¿
-	protected FilterConfig filterConfig = null;// ¶¨Òå¹ıÂËÆ÷ÅäÖÃ¶ÔÏó
+	protected String encoding = null;// å®šä¹‰ç¼–ç æ ¼å¼å˜é‡
+	protected FilterConfig filterConfig = null;// å®šä¹‰è¿‡æ»¤å™¨é…ç½®å¯¹è±¡
 
 	public void init(FilterConfig filterConfig) throws ServletException {
-		this.filterConfig = filterConfig; // ³õÊ¼»¯¹ıÂËÆ÷ÅäÖÃ¶ÔÏó
-		this.encoding = filterConfig.getInitParameter("encoding");// »ñÈ¡ÅäÖÃÎÄ¼şÖĞÖ¸¶¨µÄ±àÂë¸ñÊ½
+		this.filterConfig = filterConfig; // åˆå§‹åŒ–è¿‡æ»¤å™¨é…ç½®å¯¹è±¡
+		this.encoding = filterConfig.getInitParameter("encoding");// è·å–é…ç½®æ–‡ä»¶ä¸­æŒ‡å®šçš„ç¼–ç æ ¼å¼
 	}
 
-	// ¹ıÂËÆ÷µÄ½Ó¿Ú·½·¨£¬ÓÃÓÚÖ´ĞĞ¹ıÂËÒµÎñ
+	// è¿‡æ»¤å™¨çš„æ¥å£æ–¹æ³•ï¼Œç”¨äºæ‰§è¡Œè¿‡æ»¤ä¸šåŠ¡
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		if (encoding != null) {
-			request.setCharacterEncoding(encoding); // ÉèÖÃÇëÇóµÄ±àÂë
-			response.setContentType("text/html; charset=" + encoding);// ÉèÖÃÓ¦´ğ¶ÔÏóµÄÄÚÈİÀàĞÍ£¨°üÀ¨±àÂë¸ñÊ½£©
+			request.setCharacterEncoding(encoding); // è®¾ç½®è¯·æ±‚çš„ç¼–ç 
+			response.setContentType("text/html; charset=" + encoding);// è®¾ç½®åº”ç­”å¯¹è±¡çš„å†…å®¹ç±»å‹ï¼ˆåŒ…æ‹¬ç¼–ç æ ¼å¼ï¼‰
 		}
-		chain.doFilter(request, response); // ´«µİ¸øÏÂÒ»¸ö¹ıÂËÆ÷
+		chain.doFilter(request, response); // ä¼ é€’ç»™ä¸‹ä¸€ä¸ªè¿‡æ»¤å™¨
 	}
 
 	public void destroy() {

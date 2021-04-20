@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.ManagerForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -23,7 +23,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Ȩ������</title>
+<title>权限设置</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -37,11 +37,11 @@
 	<form name="form1" method="post" action="manager?action=managerModify">
 		<table border="0px" style="width:350px;height:120px;">
 			<tr>
-				<td style="width:30%" aling="center"><font size="3" color="blue">����Ա���ƣ�</font></td>
+				<td style="width:30%" aling="center"><font size="3" color="blue">管理员名称：</font></td>
 				<td> <input name="id" type="hidden" value="<%=ID%>"><input name="name" type="text" readonly="yes" value="<%=name%>"></td>
 			</tr>
 			<tr>
-				<td width="200px" aling="center"><font size="3" color="blue">ӵ�е�Ȩ�ޣ�</font></td>
+				<td width="200px" aling="center"><font size="3" color="blue">拥有的权限：</font></td>
 				<td>
 					<table width="100%" height="67px">
 						<tr>
@@ -50,13 +50,13 @@
 								<%if (sysset == 1) {
 				out.println("checked");
 			}%>>
-								ϵͳ����</td>
+								系统设置</td>
 							<td width="53%"><input name="readerset" type="checkbox"
 								class="noborder" id="readerset" value="1"
 								<%if (readerset == 1) {
 				out.println("checked");
 			}%>>
-								���߹���</td>
+								读者管理</td>
 						</tr>
 						<tr>
 							<td><input name="bookset" type="checkbox" class="noborder"
@@ -64,13 +64,13 @@
 								<%if (bookset == 1) {
 				out.println("checked");
 			}%>>
-								ͼ�����</td>
+								图书管理</td>
 							<td><input name="borrowback" type="checkbox"
 								class="noborder" id="borrowback" value="1"
 								<%if (borrowback == 1) {
 				out.println("checked");
 			}%>>
-								ͼ��軹</td>
+								图书借还</td>
 						</tr>
 						<tr>
 							<td height="23"><input name="sysquery" type="checkbox"
@@ -78,7 +78,7 @@
 								<%if (sysquery == 1) {
 				out.println("checked");
 			}%>>
-								ϵͳ��ѯ</td>
+								系统查询</td>
 							<td>&nbsp;</td>
 						</tr>
 					</table>
@@ -86,8 +86,8 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input name="Button"
-					type="submit" id="blueButton" value="����">&nbsp;
-					<input name="Submit2" type="button" id="redButton" value="�ر�"
+					type="submit" id="blueButton" value="保存">&nbsp;
+					<input name="Submit2" type="button" id="redButton" value="关闭"
 					onClick="window.close();"></td>
 			</tr>
 		</table>

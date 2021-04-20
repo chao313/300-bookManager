@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.LibraryForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -38,7 +38,7 @@
 	function checkForm(form) {
 		for (i = 0; i < form.length; i++) {
 			if (form.elements[i].value == "") {
-				alert("�뽫��Ϣ��д����!");
+				alert("请将信息添写完整!");
 				form.elements[i].focus();
 				return false;
 			}
@@ -60,7 +60,7 @@
 	function checkForm(form) {
 		for (i = 0; i < form.length; i++) {
 			if (form.elements[i].value == "") {
-				alert("�뽫��Ϣ��д����!");
+				alert("请将信息添写完整!");
 				form.elements[i].focus();
 				return false;
 			}
@@ -78,10 +78,10 @@
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">����ǰ��λ�ã�</li>
-					<li><a href="#">ϵͳ����</a></li>
+					<li style="margin-left: 25px;">您当前的位置：</li>
+					<li><a href="#">系统设置</a></li>
 					<li>></li>
-					<li><a href="#">ͼ�����Ϣ</a></li>
+					<li><a href="#">图书馆信息</a></li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -101,51 +101,51 @@
 					%>
 					<table id="table" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td width="200px">ͼ������ƣ�</td>
+							<td width="200px">图书馆名称：</td>
 							<td width="" align="left"><input name="libraryname"
 								type="text" id="libraryname" value="<%=libraryname%>" size="30"></td>
 						</tr>
 						<tr>
-							<td>�ݳ���</td>
+							<td>馆长：</td>
 							<td align="left"><input name="curator" type="text"
 								id="curator" size="30" value="<%=curator%>"></td>
 						</tr>
 						<tr>
-							<td>��ϵ�绰��</td>
+							<td>联系电话：</td>
 							<td align="left"><input name="tel" type="text" id="tel"
 								size="30" value="<%=tel%>"></td>
 						</tr>
 						<tr>
-							<td>��ϵ��ַ��</td>
+							<td>联系地址：</td>
 							<td align="left"><input name="address" type="text"
 								id="address" size="30" value="<%=address%>"></td>
 						</tr>
 						<tr>
-							<td>��ϵ���䣺</td>
+							<td>联系邮箱：</td>
 							<td align="left"><input name="email" type="text" id="email"
 								size="30" value="<%=email%>"></td>
 						</tr>
 						<tr>
-							<td>ͼ�����ַ��</td>
+							<td>图书馆网址：</td>
 							<td align="left"><input name="url" type="text" id="url"
 								size="30" value="<%=url%>"></td>
 						</tr>
 						<tr>
-							<td>����ʱ�䣺</td>
+							<td>建馆时间：</td>
 							<td align="left"><input name="createDate" type="text"
 								id="createDate" size="30" value="<%=createTime%>"></td>
 						</tr>
 						<tr>
-							<td>ͼ��ݼ�飺</td>
+							<td>图书馆简介：</td>
 							<td align="left"><textarea name="introduce" cols="50"
 									rows="5" class="wenbenkuang" id="introduce"><%=introduce%></textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="centers"><input name="Submit"
-								type="submit" class="btn_grey" value="����"
+								type="submit" class="btn_grey" value="保存"
 								onClick="return checkForm(form1)">
 								&nbsp;&nbsp;&nbsp;&nbsp; <input name="Submit2" type="reset"
-								class="btn_grey" value="ȡ��"></td>
+								class="btn_grey" value="取消"></td>
 						</tr>
 					</table>
 				</form>

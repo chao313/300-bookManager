@@ -29,7 +29,7 @@
 <body>
 	<div id="footer">
 		<p>
-			Copyright© 2016 版权所有 张世烩科技有限公司	</p>
+			Copyright© 版权所有 xxxx	</p>
 	</div>
 </body>
 </html>

@@ -22,7 +22,7 @@ public class BookType extends HttpServlet {
 		String action = request.getParameter("action");
 		System.out.println("\nbookType*********************action=" + action);
 		if (action == null || "".equals(action)) {
-			request.setAttribute("error", "ÄúµÄ²Ù×÷ÓĞÎó£¡");
+			request.setAttribute("error", "æ‚¨çš„æ“ä½œæœ‰è¯¯ï¼");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else if ("bookTypeAdd".equals(action)) {
@@ -38,7 +38,7 @@ public class BookType extends HttpServlet {
 		}
 	}
 
-	/*********************** Ìí¼ÓÍ¼ÊéÀàĞÍĞÅÏ¢ **************************/
+	/*********************** æ·»åŠ å›¾ä¹¦ç±»å‹ä¿¡æ¯ **************************/
 	private void bookTypeAdd(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		BookTypeForm bookTypeForm = new BookTypeForm();
@@ -46,11 +46,11 @@ public class BookType extends HttpServlet {
 		bookTypeForm.setDays(Integer.parseInt(request.getParameter("days")));
 		int a = bookTypeDAO.insert(bookTypeForm);
 		if (a == 0) {
-			request.setAttribute("error", "Í¼ÊéÀàĞÍĞÅÏ¢Ìí¼ÓÊ§°Ü£¡");
+			request.setAttribute("error", "å›¾ä¹¦ç±»å‹ä¿¡æ¯æ·»åŠ å¤±è´¥ï¼");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else if (a == 2) {
-			request.setAttribute("error", "¸ÃÍ¼ÊéÀàĞÍĞÅÏ¢ÒÑ¾­Ìí¼Ó£¡");
+			request.setAttribute("error", "è¯¥å›¾ä¹¦ç±»å‹ä¿¡æ¯å·²ç»æ·»åŠ ï¼");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else {
@@ -59,7 +59,7 @@ public class BookType extends HttpServlet {
 		}
 	}
 
-	/*********************** ²éÑ¯È«²¿Í¼ÊéÀàĞÍĞÅÏ¢ **************************/
+	/*********************** æŸ¥è¯¢å…¨éƒ¨å›¾ä¹¦ç±»å‹ä¿¡æ¯ **************************/
 	private void bookTypeQuery(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String str = null;
@@ -67,7 +67,7 @@ public class BookType extends HttpServlet {
 		request.getRequestDispatcher("bookType.jsp").forward(request, response);
 	}
 
-	/*********************** ²éÑ¯ĞŞ¸ÄÍ¼ÊéÀàĞÍĞÅÏ¢ **************************/
+	/*********************** æŸ¥è¯¢ä¿®æ”¹å›¾ä¹¦ç±»å‹ä¿¡æ¯ **************************/
 	private void bookTypeModifyQuery(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		BookTypeForm bookTypeForm = new BookTypeForm();
@@ -78,7 +78,7 @@ public class BookType extends HttpServlet {
 				response);
 	}
 
-	/*********************** ĞŞ¸ÄÍ¼ÊéÀàĞÍĞÅÏ¢ **************************/
+	/*********************** ä¿®æ”¹å›¾ä¹¦ç±»å‹ä¿¡æ¯ **************************/
 	private void bookTypeModify(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		BookTypeForm bookTypeForm = new BookTypeForm();
@@ -87,7 +87,7 @@ public class BookType extends HttpServlet {
 		bookTypeForm.setDays(Integer.parseInt(request.getParameter("days")));
 		int ret = bookTypeDAO.update(bookTypeForm);
 		if (ret == 0) {
-			request.setAttribute("error", "ĞŞ¸ÄÍ¼ÊéÀàĞÍĞÅÏ¢Ê§°Ü£¡");
+			request.setAttribute("error", "ä¿®æ”¹å›¾ä¹¦ç±»å‹ä¿¡æ¯å¤±è´¥ï¼");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else {
@@ -96,14 +96,14 @@ public class BookType extends HttpServlet {
 		}
 	}
 
-	/*********************** É¾³ıÍ¼ÊéÀàĞÍĞÅÏ¢ **************************/
+	/*********************** åˆ é™¤å›¾ä¹¦ç±»å‹ä¿¡æ¯ **************************/
 	private void bookTypeDel(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		BookTypeForm bookTypeForm = new BookTypeForm();
 		bookTypeForm.setId(Integer.valueOf(request.getParameter("ID")));
 		int ret = bookTypeDAO.delete(bookTypeForm);
 		if (ret == 0) {
-			request.setAttribute("error", "É¾³ıÍ¼ÊéÀàĞÍĞÅÏ¢Ê§°Ü£¡");
+			request.setAttribute("error", "åˆ é™¤å›¾ä¹¦ç±»å‹ä¿¡æ¯å¤±è´¥ï¼");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else {

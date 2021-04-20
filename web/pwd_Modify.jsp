@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.ManagerForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -16,7 +16,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -48,28 +48,28 @@ a:visited {
 <script language="javascript">
 	function checkForm(form) {
 		if (form.oldpwd.value == "") {
-			alert("ÇëÊäÈëµÄÔ­ÃÜÂë!");
+			alert("è¯·è¾“å…¥çš„åŸå¯†ç !");
 			form.oldpwd.focus();
 			return false;
 		}
 		if (form.oldpwd.value != form.holdpwd.value) {
-			alert("ÄúÊäÈëµÄÔ­ÃÜÂë²»ÕıÈ·£¬ÇëÖØĞÂÊäÈë!");
+			alert("æ‚¨è¾“å…¥çš„åŸå¯†ç ä¸æ­£ç¡®ï¼Œè¯·é‡æ–°è¾“å…¥!");
 			form.oldpwd.value = "";
 			form.oldpwd.focus();
 			return false;
 		}
 		if (form.pwd.value == "") {
-			alert("ÇëÊäÈëµÄĞÂÃÜÂë!");
+			alert("è¯·è¾“å…¥çš„æ–°å¯†ç !");
 			form.pwd.focus();
 			return false;
 		}
 		if (form.pwd1.value == "") {
-			alert("ÇëÈ·ÈÏĞÂÃÜÂë!");
+			alert("è¯·ç¡®è®¤æ–°å¯†ç !");
 			form.pwd1.focus();
 			return false;
 		}
 		if (form.pwd.value != form.pwd1.value) {
-			alert("ÄúÁ½´ÎÊäÈëµÄĞÂÃÜÂë²»Ò»ÖÂ£¬ÇëÖØĞÂÊäÈë!");
+			alert("æ‚¨ä¸¤æ¬¡è¾“å…¥çš„æ–°å¯†ç ä¸ä¸€è‡´ï¼Œè¯·é‡æ–°è¾“å…¥!");
 			form.pwd.value = "";
 			form.pwd1.value = "";
 			form.pwd.focus();
@@ -90,41 +90,41 @@ a:visited {
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">ÃÜÂëÉèÖÃ</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">å¯†ç è®¾ç½®</a></li>
 					<li>></li>
-					<li>¸ü¸Ä¿ÚÁî</li>
+					<li>æ›´æ”¹å£ä»¤</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
 				<form name="form1" method="post" action="manager?action=modifypwd">
 					<table id="table1">
 						<tr align="center">
-							<td width="27%" align="left" style="padding:5px;">¹ÜÀíÔ±Ãû³Æ£º</td>
+							<td width="27%" align="left" style="padding:5px;">ç®¡ç†å‘˜åç§°ï¼š</td>
 							<td width="73%" align="left"><input name="name" type="text"
 								id="name" value="<%=managerForm.getName()%>" readonly="yes"
 								size="30"></td>
 						<tr>
-							<td align="left" style="padding:5px;">Ô­ÃÜÂë£º</td>
+							<td align="left" style="padding:5px;">åŸå¯†ç ï¼š</td>
 							<td align="left"><input name="oldpwd" type="password"
 								id="oldpwd" size="30"> <input name="holdpwd"
 								type="hidden" id="holdpwd" value="<%=managerForm.getPwd()%>"></td>
 						</tr>
 						<tr>
-							<td align="left" style="padding:5px;">ĞÂÃÜÂë£º</td>
+							<td align="left" style="padding:5px;">æ–°å¯†ç ï¼š</td>
 							<td align="left"><input name="pwd" type="password" id="pwd"
 								size="30"></td>
 						</tr>
 						<tr>
-							<td align="left" style="padding:5px;">È·ÈÏĞÂÃÜÂë£º</td>
+							<td align="left" style="padding:5px;">ç¡®è®¤æ–°å¯†ç ï¼š</td>
 							<td align="left"><input name="pwd1" type="password"
 								id="pwd1" size="30"></td>
 						</tr>
 						<tr>
 							<td height="65" align="left" style="padding:5px;">&nbsp;</td>
 							<td><input name="Submit" type="submit" id="blueButton"
-								value="±£´æ" onClick="return checkForm(form1)"> &nbsp; <input
-								name="Submit2" type="reset" id="redButton" value="È¡Ïû"></td>
+								value="ä¿å­˜" onClick="return checkForm(form1)"> &nbsp; <input
+								name="Submit2" type="reset" id="redButton" value="å–æ¶ˆ"></td>
 						</tr>
 					</table>
 				</form>
@@ -133,10 +133,10 @@ a:visited {
 				style="border:0px solid red;width:500px; margin: auto;margin-left: 300px; ">
 				<table style="width:100%;">
 					<tr>
-						<td rowspan="2"><img alt="'" src="images/youqingtixing.gif"><td><font size="12" color="orange">ÎÂÜ°ÌáÊ¾!</font></td></td>
+						<td rowspan="2"><img alt="'" src="images/youqingtixing.gif"><td><font size="12" color="orange">æ¸©é¦¨æç¤º!</font></td></td>
 					</tr>
 					<tr>
-						<td style="padding-top: 0px">ÎªÁËÃÜÂëµÄ°²È«£¬Çë¶¨ÆÚĞŞ¸ÄÃÜÂë£¡</td>
+						<td style="padding-top: 0px">ä¸ºäº†å¯†ç çš„å®‰å…¨ï¼Œè¯·å®šæœŸä¿®æ”¹å¯†ç ï¼</td>
 					</tr>
 				</table>
 			</div>

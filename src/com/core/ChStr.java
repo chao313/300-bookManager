@@ -2,15 +2,15 @@ package com.core;
 
 public class ChStr {
 
-	// ´¦Àí×Ö·û´®ÖĞµÄ¿ÕÖµ
+	// å¤„ç†å­—ç¬¦ä¸²ä¸­çš„ç©ºå€¼
 	public static final String nullToString(String v, String toV) {
-		if (v == null || "".equals(v)) { // µ±ÊäÈë±äÁ¿vÎª¿ÕÊ±
-			v = toV; // ½«ÊäÈë±äÁ¿v¸³ÖµÎªÊäÈë±äÁ¿toV
+		if (v == null || "".equals(v)) { // å½“è¾“å…¥å˜é‡vä¸ºç©ºæ—¶
+			v = toV; // å°†è¾“å…¥å˜é‡vèµ‹å€¼ä¸ºè¾“å…¥å˜é‡toV
 		}
-		return v; // ·µ»Ø×ª»»ºóµÄÊäÈë±äÁ¿v
+		return v; // è¿”å›è½¬æ¢åçš„è¾“å…¥å˜é‡v
 	}
 
-	// ¹ıÂËÎ£ÏÕ×Ö·û
+	// è¿‡æ»¤å±é™©å­—ç¬¦
 	public static final String filterStr(String str) {
 		str = str.replaceAll(";", "");
 		str = str.replaceAll("&", "&amp;");

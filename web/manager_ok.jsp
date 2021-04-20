@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>Í¼Êé¹ÜÀíÏµÍ³</title>
+    <title>å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,7 +28,7 @@ switch(para){
 	case 1:
 	%>
 		<script language="javascript">
-		alert("¹ÜÀíÔ±ĞÅÏ¢Ìí¼Ó³É¹¦!");
+		alert("ç®¡ç†å‘˜ä¿¡æ¯æ·»åŠ æˆåŠŸ!");
 		opener.location.reload();
 		window.close();
 		</script>	
@@ -36,7 +36,7 @@ switch(para){
 	case 2:
 	%>
 		<script language="javascript">
-		alert("¹ÜÀíÔ±È¨ÏŞÉèÖÃ³É¹¦!");
+		alert("ç®¡ç†å‘˜æƒé™è®¾ç½®æˆåŠŸ!");
 		opener.location.reload();
 		window.close();
 		</script>		
@@ -44,7 +44,7 @@ switch(para){
 	case 3:
 	%>
 		<script language="javascript">
-		alert("¹ÜÀíÔ±ĞÅÏ¢É¾³ı³É¹¦!");
+		alert("ç®¡ç†å‘˜ä¿¡æ¯åˆ é™¤æˆåŠŸ!");
 		window.location.href="manager?action=managerQuery";
 		</script>		
 	<%	break;

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Ìí¼Ó¶ÁÕßÀàĞÍĞÅÏ¢</title>
+<title>æ·»åŠ è¯»è€…ç±»å‹ä¿¡æ¯</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -24,10 +24,10 @@
 	
 function check(form){
 	if(form.name.value==""){
-		alert("ÇëÊäÈëÀàĞÍÃû³Æ!");form.name.focus();return false;
+		alert("è¯·è¾“å…¥ç±»å‹åç§°!");form.name.focus();return false;
 	}
 	if(form.number.value==""){
-		alert("ÇëÊäÈë¿É½èÊıÁ¿!");form.number.focus();return false;
+		alert("è¯·è¾“å…¥å¯å€Ÿæ•°é‡!");form.number.focus();return false;
 	}	
 }
 
@@ -39,17 +39,17 @@ function check(form){
 	<form name="form1" method="post" action="readerType?action=readerTypeAdd">
 		<table border="0px" style="width:270px;height:120px;">
 			<tr>
-				<td width="180px" align="center"><font size="3" color="blue">ÀàĞÍÃû³Æ£º</font></td>
+				<td width="180px" align="center"><font size="3" color="blue">ç±»å‹åç§°ï¼š</font></td>
 				<td><input name="name" type="text" size="20"></td>
 			</tr>
 			<tr>
-				<td align="center"><font size="3" color="blue">¿É½èÊıÁ¿£º</font></td>
-				<td height="35"><input name="number" type="text" id="number" size="14">(±¾)</td>
+				<td align="center"><font size="3" color="blue">å¯å€Ÿæ•°é‡ï¼š</font></td>
+				<td height="35"><input name="number" type="text" id="number" size="14">(æœ¬)</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input name="Submit1"
-					type="submit" id="blueButton" value="±£´æ" onClick="return check(form1)">&nbsp; <input
-					name="Submit2" type="button" id="redButton" value="¹Ø±Õ"
+					type="submit" id="blueButton" value="ä¿å­˜" onClick="return check(form1)">&nbsp; <input
+					name="Submit2" type="button" id="redButton" value="å…³é—­"
 					onClick="window.close();"></td>
 			</tr>
 		</table>

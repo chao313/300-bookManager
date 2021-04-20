@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -22,22 +22,22 @@
 <script language="javascript">
 	function check(form) {
 		if (form.name.value == "") {
-			alert("ÇëÊäÈë¹ÜÀíÔ±Ãû³Æ!");
+			alert("è¯·è¾“å…¥ç®¡ç†å‘˜åç§°!");
 			form.name.focus();
 			return;
 		}
 		if (form.pwd.value == "") {
-			alert("ÇëÊäÈë¹ÜÀíÔ±ÃÜÂë!");
+			alert("è¯·è¾“å…¥ç®¡ç†å‘˜å¯†ç !");
 			form.pwd.focus();
 			return;
 		}
 		if (form.pwd1.value == "") {
-			alert("ÇëÈ·ÈÏ¹ÜÀíÔ±ÃÜÂë!");
+			alert("è¯·ç¡®è®¤ç®¡ç†å‘˜å¯†ç !");
 			form.pwd1.focus();
 			return;
 		}
 		if (form.pwd.value != form.pwd1.value) {
-			alert("ÄúÁ½´ÎÊäÈëµÄ¹ÜÀíÔ±ÃÜÂë²»Ò»ÖÂ£¬ÇëÖØĞÂÊäÈë!");
+			alert("æ‚¨ä¸¤æ¬¡è¾“å…¥çš„ç®¡ç†å‘˜å¯†ç ä¸ä¸€è‡´ï¼Œè¯·é‡æ–°è¾“å…¥!");
 			form.pwd.focus();
 			return;
 		}
@@ -50,21 +50,21 @@
 	<form name="form1" method="post" action="manager?action=managerAdd">
 		<table border="0px" style="width:290px;height:120px;">
 			<tr>
-				<td width="200px" aling="center"><font size="3" color="blue">¹ÜÀíÔ±Ãû³Æ£º</font></td>
+				<td width="200px" aling="center"><font size="3" color="blue">ç®¡ç†å‘˜åç§°ï¼š</font></td>
 				<td><input name="name" type="text"></td>
 			</tr>
 			<tr>
-				<td width="200px" aling="center"><font size="3" color="blue">¹ÜÀíÔ±ÃÜÂë£º</font></td>
+				<td width="200px" aling="center"><font size="3" color="blue">ç®¡ç†å‘˜å¯†ç ï¼š</font></td>
 				<td><input name="pwd" type="password"></td>
 			</tr>
 			<tr>
-				<td width="200px" aling="center"><font size="3" color="blue">È·ÈÏ&nbspÃÜÂë£º</font></td>
+				<td width="200px" aling="center"><font size="3" color="blue">ç¡®è®¤&nbspå¯†ç ï¼š</font></td>
 				<td><input name="pwd1" type="password"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input name="Button"
-					type="button" id="blueButton" onClick="check(form1)" value="±£´æ">&nbsp;
-					<input name="Submit2" type="button" id="redButton" value="¹Ø±Õ"
+					type="button" id="blueButton" onClick="check(form1)" value="ä¿å­˜">&nbsp;
+					<input name="Submit2" type="button" id="redButton" value="å…³é—­"
 					onClick="window.close();"></td>
 			</tr>
 		</table>

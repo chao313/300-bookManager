@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>²Ù×÷³É¹¦£¡</title>
+<title>æ“ä½œæˆåŠŸï¼</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -29,7 +29,7 @@
 			case 1 :
 	%>
 	<script language="javascript">
-		alert("¶ÁÕßÀàĞÍĞÅÏ¢Ìí¼Ó³É¹¦!");
+		alert("è¯»è€…ç±»å‹ä¿¡æ¯æ·»åŠ æˆåŠŸ!");
 		opener.location.reload();
 		window.close();
 	</script>
@@ -38,7 +38,7 @@
 			case 2 :
 	%>
 	<script language="javascript">
-		alert("¶ÁÕßÀàĞÍĞÅÏ¢ĞŞ¸Ä³É¹¦!");
+		alert("è¯»è€…ç±»å‹ä¿¡æ¯ä¿®æ”¹æˆåŠŸ!");
 		opener.location.reload();
 		window.close();
 	</script>
@@ -47,7 +47,7 @@
 			case 3 :
 	%>
 	<script language="javascript">
-		alert("¶ÁÕßÀàĞÍĞÅÏ¢É¾³ı³É¹¦!");
+		alert("è¯»è€…ç±»å‹ä¿¡æ¯åˆ é™¤æˆåŠŸ!");
 		window.location.href = "readerType?action=readerTypeQuery";
 	</script>
 	<%

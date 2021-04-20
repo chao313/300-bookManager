@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.BookCaseForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>ÐÞ¸ÄÊé¼ÜÐÅÏ¢</title>
+<title>ä¿®æ”¹ä¹¦æž¶ä¿¡æ¯</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -32,17 +32,17 @@
 		action="bookCase?action=bookCaseModify">
 		<table border="0px" style="width:270px;height:120px;">
 			<tr>
-				<td width="200px" aling="center"><font size="3" color="blue">Êé¼ÜÃû³Æ£º</font></td>
+				<td width="200px" aling="center"><font size="3" color="blue">ä¹¦æž¶åç§°ï¼š</font></td>
 				<td><input name="id" type="hidden" size="50"
 					value="<%=bookCaseForm.getId()%>"> <input name="name"
 					type="text" value="<%=bookCaseForm.getName()%>"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input name="Submit"
-					type="submit" id="blueButton" value="±£´æ">&nbsp;<input
-					name="Submit2" type="reset" id="orangeButton" value="ÖØÖÃ">&nbsp;<input
+					type="submit" id="blueButton" value="ä¿å­˜">&nbsp;<input
+					name="Submit2" type="reset" id="orangeButton" value="é‡ç½®">&nbsp;<input
 					name="Submit3" type="button" id="redButton"
-					onClick="window.close()" value="¹Ø±Õ"></td>
+					onClick="window.close()" value="å…³é—­"></td>
 			</tr>
 		</table>
 	</form>

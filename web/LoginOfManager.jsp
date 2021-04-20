@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹İºóÌ¨¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†åå°ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -34,7 +34,7 @@ img {
 }
 
 .wz {
-	font-family: "ËÎÌå";
+	font-family: "å®‹ä½“";
 	font-size: 14px;
 	color: #0C4B7A;
 }
@@ -57,12 +57,12 @@ img {
 <script>
 	function check(form) {
 		if (form.name.value == "") {
-			alert("ÇëÊäÈë¹ÜÀíÔ±Ãû³Æ!");
+			alert("è¯·è¾“å…¥ç®¡ç†å‘˜åç§°!");
 			form.name.focus();
 			return false;
 		}
 		if (form.pwd.value == "") {
-			alert("ÇëÊäÈëÃÜÂë!");
+			alert("è¯·è¾“å…¥å¯†ç !");
 			form.pwd.focus();
 			return false;
 		}
@@ -75,7 +75,7 @@ img {
 		cellspacing="0">
 		<tr>
 			<td>
-				<!--main-table¿ªÊ¼-->
+				<!--main-tableå¼€å§‹-->
 				<table width="711" border="0" align="center" cellpadding="0"
 					cellspacing="0">
 					<tr>
@@ -88,7 +88,7 @@ img {
 						<td width="418"><img src="img/tp2.jpg" width="418"
 							height="302" /></td>
 						<td width="269" valign="top" background="img/logo_bj.jpg">
-							<!--login¿ªÊ¼-->
+							<!--loginå¼€å§‹-->
 							<form name="form1" method="post" action="manager?action=login">
 								<table width="92%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
@@ -105,7 +105,7 @@ img {
 									<tr>
 										<td width="13%"><img src="img/yh.gif" width="25"
 											height="29"></td>
-										<td width="27%" align="center" class="wz">ÓÃ»§Ãû:</td>
+										<td width="27%" align="center" class="wz">ç”¨æˆ·å:</td>
 										<td align="left"><input name="name" type="text"
 											class="form-input" id="name"></td>
 									</tr>
@@ -115,7 +115,7 @@ img {
 									<tr>
 										<td width="13%"><img src="img/mm.gif" width="25"
 											height="29"></td>
-										<td width="27%" align="center" class="wz">ÃÜ Âë:</td>
+										<td width="27%" align="center" class="wz">å¯† ç :</td>
 										<td align="left"><input name="pwd" type="password"
 											class="form-input" id="pwd"></td>
 									</tr>
@@ -125,7 +125,7 @@ img {
 									<tr>
 										<td height="22" colspan="2">&nbsp;</td>
 										<td height="34" valign="top"><!-- <input type="checkbox"><span
-											class="STYLE3">¼Ç×¡ÃÜÂë</span> --></td>
+											class="STYLE3">è®°ä½å¯†ç </span> --></td>
 									</tr>
 									<tr>
 										<td colspan="2" align="center"></td>
@@ -136,7 +136,7 @@ img {
 											value=""></td>
 									</tr>
 								</table>
-							</form> <!--login½áÊø-->
+							</form> <!--loginç»“æŸ-->
 						</td>
 						<td width="12"><img src="img/login_ri.gif" width="12"
 							height="302" /></td>
@@ -145,13 +145,13 @@ img {
 						<td colspan="4"><img src="img/login_dow.gif" width="711"
 							height="12" /></td>
 					</tr>
-				</table> <!--main-table½áÊø--> <!--foot¿ªÊ¼-->
+				</table> <!--main-tableç»“æŸ--> <!--footå¼€å§‹-->
 				<table width="711" border="0" align="center" cellpadding="0"
 					cellspacing="0">
 					<tr>
-						<td align="center" class="boy">°æÈ¨ËùÓĞ£ºÕÅÊÀ»âÈí¼ş²úÒµÓĞÏŞ¹«Ë¾</td>
+						<td align="center" class="boy">ç‰ˆæƒæ‰€æœ‰:xxxx</td>
 					</tr>
-				</table> <!--foot½áÊø-->
+				</table> <!--footç»“æŸ-->
 			</td>
 		</tr>
 	</table>

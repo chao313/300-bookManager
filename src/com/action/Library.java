@@ -47,7 +47,7 @@ public class Library extends HttpServlet {
 		libraryForm.setIntroduce(request.getParameter("introduce"));
 		int ret = libraryDAO.update(libraryForm);
 		if (ret == 0) {
-			request.setAttribute("error", "图书馆信息修改失败！");
+			request.setAttribute("error", "鍥句功棣嗕俊鎭慨鏀瑰け璐ワ紒");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else {

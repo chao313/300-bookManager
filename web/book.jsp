@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"
+<%@ page contentType="text/html; charset=utf-8" language="java"
 	import="java.sql.*" errorPage=""%>
 <%@ page import="com.dao.BookDAO"%>
 <%@ page import="com.actionForm.BookForm"%>
@@ -10,7 +10,7 @@
 	ChStr chStr = new ChStr();
 %>
 <head>
-<title>Í¼Êé¹Ý¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
 <link href="CSS/style.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/button.css" />
 <style>
@@ -64,10 +64,10 @@ a:visited {
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">Í¼Êé¹ÜÀí</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">å›¾ä¹¦ç®¡ç†</a></li>
 					<li>></li>
-					<li>Í¼Êéµµ°¸¹ÜÀí</li>
+					<li>å›¾ä¹¦æ¡£æ¡ˆç®¡ç†</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -78,16 +78,16 @@ a:visited {
 					<tr>
 						<td align="center"><a href="reader_add.jsp"
 							style="color:white;">
-								<button type="button" id="orangeButton">Ìí¼ÓÍ¼ÊéÐÅÏ¢</button>
+								<button type="button" id="orangeButton">æ·»åŠ å›¾ä¹¦ä¿¡æ¯</button>
 						</a></td>
 					</tr>
 					<tr>
-						<td>°¥ßÏ£¬Ã»ÓÐ¶ÁÕßÀàÐÍÀ²£¬ÇëÌí¼ÓÍ¼Êéµµ°¸£¡</td>
+						<td>å“Žå‘¦ï¼Œæ²¡æœ‰è¯»è€…ç±»åž‹å•¦ï¼Œè¯·æ·»åŠ å›¾ä¹¦æ¡£æ¡ˆï¼</td>
 					</tr>
 				</table>
 				<%
 					} else {
-						//Í¨¹ýµü´ú·½Ê½ÏÔÊ¾Êý¾Ý
+						//é€šè¿‡è¿­ä»£æ–¹å¼æ˜¾ç¤ºæ•°æ®
 						Iterator it = coll.iterator();
 						int ID = 0;
 						String bookname = "";
@@ -100,19 +100,19 @@ a:visited {
 				<table id="table1" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td align="right"><a href="book_add.jsp" style="color:white;"><button
-									type="button" id="orangeButton">Ìí¼ÓÍ¼ÊéÐÅÏ¢</a>
+									type="button" id="orangeButton">æ·»åŠ å›¾ä¹¦ä¿¡æ¯</a>
 							</button></td>
 					</tr>
 					<tr>
 						<td>
 							<table id="table2" border="1px" cellspacing="0" cellpadding="0">
 								<tr align="center" bgcolor="#e3F4F7">
-									<th width="13%" bgcolor="#00a9da">ÌõÐÎÂë</th>
-									<th width="26%" bgcolor="#00a9da">Í¼ÊéÃû³Æ</th>
-									<th width="15%" bgcolor="#00a9da">Í¼ÊéÀàÐÍ</th>
-									<th width="14%" bgcolor="#00a9da">³ö°æÉç</th>
-									<th width="12%" bgcolor="#00a9da">Êé¼Ü</th>
-									<th width="14%" bgcolor="#00a9da">²Ù×÷</th>
+									<th width="13%" bgcolor="#00a9da">æ¡å½¢ç </th>
+									<th width="26%" bgcolor="#00a9da">å›¾ä¹¦åç§°</th>
+									<th width="15%" bgcolor="#00a9da">å›¾ä¹¦ç±»åž‹</th>
+									<th width="14%" bgcolor="#00a9da">å‡ºç‰ˆç¤¾</th>
+									<th width="12%" bgcolor="#00a9da">ä¹¦æž¶</th>
+									<th width="14%" bgcolor="#00a9da">æ“ä½œ</th>
 								</tr>
 								<%
 									while (it.hasNext()) {
@@ -136,9 +136,9 @@ a:visited {
 									<td align="center">&nbsp;<%=bookcase%></td>
 									<td align="center"><a
 										href="book?action=bookModifyQuery&ID=<%=ID%>"><button
-												type="button" id="blueButton">ÐÞ¸Ä</button></a> &nbsp <a
+												type="button" id="blueButton">ä¿®æ”¹</button></a> &nbsp <a
 										href="book?action=bookDel&ID=<%=ID%>"><button
-												type="button" id="redButton">É¾³ý</button></a></td>
+												type="button" id="redButton">åˆ é™¤</button></a></td>
 								</tr>
 								<%
 									}

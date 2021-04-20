@@ -38,7 +38,7 @@ public class Parameter extends HttpServlet {
 				.getParameter("validity")));
 		int ret = parameterDAO.update(parameterForm);
 		if (ret == 0) {
-			request.setAttribute("error", "²ÎÊıÉèÖÃĞÅÏ¢ĞŞ¸ÄÊ§°Ü£¡");
+			request.setAttribute("error", "å‚æ•°è®¾ç½®ä¿¡æ¯ä¿®æ”¹å¤±è´¥ï¼");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else {

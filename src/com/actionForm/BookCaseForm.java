@@ -4,7 +4,7 @@ public class BookCaseForm {
 	private Integer id;
 	private String name;
 
-	// ¹¹Ôì·½·¨
+	// æž„é€ æ–¹æ³•
 	public BookCaseForm() {
 	}
 

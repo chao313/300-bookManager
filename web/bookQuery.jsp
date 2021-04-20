@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.dao.BookDAO"%>
 <%@ page import="com.actionForm.BookForm"%>
 <%@ page import="java.util.*"%>
@@ -17,7 +17,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹Ý¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -38,10 +38,10 @@
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">ÏµÍ³²éÑ¯</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">ç³»ç»ŸæŸ¥è¯¢</a></li>
 					<li>></li>
-					<li>Í¼Êéµµ°¸²éÑ¯</li>
+					<li>å›¾ä¹¦æ¡£æ¡ˆæŸ¥è¯¢</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -51,16 +51,16 @@
 						<tr>
 							<td align="center" bgcolor="#00a9da">&nbsp;<img
 								src="images/search3.gif" width="45" height="28"></td>
-							<td bgcolor="#00a9da">ÇëÑ¡Ôñ²éÑ¯ÒÀ¾Ý£º <select name="f"
+							<td bgcolor="#00a9da">è¯·é€‰æ‹©æŸ¥è¯¢ä¾æ®ï¼š <select name="f"
 								class="wenbenkuang" id="f">
-									<option value="barcode">ÌõÐÎÂë</option>
-									<option value="typename">Àà±ð</option>
-									<option value="bookname" selected>ÊéÃû</option>
-									<option value="author">×÷Õß</option>
-									<option value="publishing">³ö°æÉç</option>
-									<option value="bookcasename">Êé¼Ü</option>
+									<option value="barcode">æ¡å½¢ç </option>
+									<option value="typename">ç±»åˆ«</option>
+									<option value="bookname" selected>ä¹¦å</option>
+									<option value="author">ä½œè€…</option>
+									<option value="publishing">å‡ºç‰ˆç¤¾</option>
+									<option value="bookcasename">ä¹¦æž¶</option>
 							</select> <input name="key" type="text" id="key" size="50"> <input
-								name="Submit" id="redbuttons" type="submit" class="btn_grey" value="²éÑ¯"></td>
+								name="Submit" id="redbuttons" type="submit" class="btn_grey" value="æŸ¥è¯¢"></td>
 						</tr>
 					</table>
 					<%
@@ -69,12 +69,12 @@
 					<table width="100%" height="30" border="0" cellpadding="0"
 						cellspacing="0">
 						<tr>
-							<td height="36" align="center">ÔÝÎÞÍ¼ÊéÐÅÏ¢£¡</td>
+							<td height="36" align="center">æš‚æ— å›¾ä¹¦ä¿¡æ¯ï¼</td>
 						</tr>
 					</table>
 					<%
 						} else {
-							//Í¨¹ýµü´ú·½Ê½ÏÔÊ¾Êý¾Ý
+							//é€šè¿‡è¿­ä»£æ–¹å¼æ˜¾ç¤ºæ•°æ®
 							Iterator it = coll.iterator();
 							int ID = 0;
 							String bookname = "";
@@ -88,11 +88,11 @@
 						bordercolor="#FFFFFF" bordercolordark="#F6B83B"
 						bordercolorlight="#FFFFFF">
 						<tr align="center" bgcolor="#e3F4F7">
-							<td width="17%" bgcolor="#00a9da">ÌõÐÎÂë</td>
-							<td width="31%" bgcolor="#00a9da">Í¼ÊéÃû³Æ</td>
-							<td width="18%" bgcolor="#00a9da">Í¼ÊéÀàÐÍ</td>
-							<td width="19%" bgcolor="#00a9da">³ö°æÉç</td>
-							<td width="15%" bgcolor="#00a9da">Êé¼Ü</td>
+							<td width="17%" bgcolor="#00a9da">æ¡å½¢ç </td>
+							<td width="31%" bgcolor="#00a9da">å›¾ä¹¦åç§°</td>
+							<td width="18%" bgcolor="#00a9da">å›¾ä¹¦ç±»åž‹</td>
+							<td width="19%" bgcolor="#00a9da">å‡ºç‰ˆç¤¾</td>
+							<td width="15%" bgcolor="#00a9da">ä¹¦æž¶</td>
 						</tr>
 						<%
 							while (it.hasNext()) {

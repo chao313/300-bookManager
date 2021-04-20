@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>操作成功!</title>
+<title>鎿嶄綔鎴愬姛!</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -26,7 +26,7 @@
 
 <body>
 	<script language="javascript">
-		alert("口令更改成功!");
+		alert("鍙ｄ护鏇存敼鎴愬姛!");
 		window.location.href = "manager?action=querypwd";
 	</script>
 </body>

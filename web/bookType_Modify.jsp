@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.actionForm.BookTypeForm"%>
 <%@ page import="com.core.ChStr"%>
 <%
@@ -13,7 +13,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>ÐÞ¸ÄÍ¼ÊéÀàÐÍÐÅÏ¢</title>
+<title>ä¿®æ”¹å›¾ä¹¦ç±»åž‹ä¿¡æ¯</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -34,22 +34,22 @@
 		<input name="id" type="hidden" size="50" value="<%=bookTypeForm.getId()%>">
 		<table border="0px" style="width:270px;height:120px;">
 			<tr>
-				<td width="35%">ÀàÐÍÃû³Æ£º</td>
+				<td width="35%">ç±»åž‹åç§°ï¼š</td>
 				<td><input name="typeName" type="text"
 					value="<%=bookTypeForm.getTypeName()%>"></td>
 			</tr>
 			<tr>
-				<td>¿É½èÌìÊý£º</td>
+				<td>å¯å€Ÿå¤©æ•°ï¼š</td>
 				<td><input name="days" type="text" size="13px"
-					value="<%=bookTypeForm.getDays()%>"> (Ìì)</td>
+					value="<%=bookTypeForm.getDays()%>"> (å¤©)</td>
 			</tr>
 			<tr>
 			<tr>
 				<td colspan="2" align="center"><input name="Submit"
-					type="submit" id="blueButton" value="±£´æ">&nbsp;<input
-					name="Submit2" type="reset" id="orangeButton" value="ÖØÖÃ">&nbsp;<input
+					type="submit" id="blueButton" value="ä¿å­˜">&nbsp;<input
+					name="Submit2" type="reset" id="orangeButton" value="é‡ç½®">&nbsp;<input
 					name="Submit3" type="button" id="redButton"
-					onClick="window.close()" value="¹Ø±Õ"></td>
+					onClick="window.close()" value="å…³é—­"></td>
 			</tr>
 		</table>
 	</form>

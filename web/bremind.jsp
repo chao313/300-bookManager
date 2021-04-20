@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.dao.BorrowDAO"%>
 <%@ page import="com.actionForm.BorrowForm"%>
 <%@ page import="java.util.*"%>
@@ -17,7 +17,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹Ý¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -37,10 +37,10 @@
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">ÏµÍ³²éÑ¯</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">ç³»ç»ŸæŸ¥è¯¢</a></li>
 					<li>></li>
-					<li>½èÔÄµ½ÆÚÌáÐÑ</li>
+					<li>å€Ÿé˜…åˆ°æœŸæé†’</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -50,12 +50,12 @@
 				<table width="100%" height="30" border="0" cellpadding="0"
 					cellspacing="0">
 					<tr>
-						<td height="36" align="center">ÔÝÎÞµ½ÆÚÌáÐÑÐÅÏ¢£¡</td>
+						<td height="36" align="center">æš‚æ— åˆ°æœŸæé†’ä¿¡æ¯ï¼</td>
 					</tr>
 				</table>
 				<%
 					} else {
-						//Í¨¹ýµü´ú·½Ê½ÏÔÊ¾Êý¾Ý
+						//é€šè¿‡è¿­ä»£æ–¹å¼æ˜¾ç¤ºæ•°æ®
 						Iterator it = coll.iterator();
 						String bookname = "";
 						String bookbarcode = "";
@@ -68,12 +68,12 @@
 					bordercolor="#FFFFFF" bordercolordark="#F6B83B"
 					bordercolorlight="#FFFFFF">
 					<tr align="center" bgcolor="#e3F4F7">
-						<td width="15%" bgcolor="#00a9da">Í¼ÊéÌõÐÎÂë</td>
-						<td width="28%" bgcolor="#00a9da">Í¼ÊéÃû³Æ</td>
-						<td width="17%" bgcolor="#00a9da">¶ÁÕßÌõÐÎÂë</td>
-						<td width="9%" bgcolor="#00a9da">¶ÁÕßÃû³Æ</td>
-						<td width="15%" bgcolor="#00a9da">½èÔÄÊ±¼ä</td>
-						<td width="16%" bgcolor="#00a9da">Ó¦»¹Ê±¼ä</td>
+						<td width="15%" bgcolor="#00a9da">å›¾ä¹¦æ¡å½¢ç </td>
+						<td width="28%" bgcolor="#00a9da">å›¾ä¹¦åç§°</td>
+						<td width="17%" bgcolor="#00a9da">è¯»è€…æ¡å½¢ç </td>
+						<td width="9%" bgcolor="#00a9da">è¯»è€…åç§°</td>
+						<td width="15%" bgcolor="#00a9da">å€Ÿé˜…æ—¶é—´</td>
+						<td width="16%" bgcolor="#00a9da">åº”è¿˜æ—¶é—´</td>
 					</tr>
 					<%
 						while (it.hasNext()) {

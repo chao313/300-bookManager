@@ -8,7 +8,7 @@ import com.actionForm.PublishingForm;
 public class PublishingDAO {
 	private ConnDB conn = new ConnDB();
 
-	// ²éÑ¯Êı¾İ
+	// æŸ¥è¯¢æ•°æ®
 	public Collection query(String strif) {
 		PublishingForm pubForm = null;
 		Collection pubColl = new ArrayList();

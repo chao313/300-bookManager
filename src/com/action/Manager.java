@@ -11,61 +11,61 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 public class Manager extends HttpServlet {
-	private ManagerDAO managerDAO = null; // ÉùÃ÷ManagerDAOµÄ¶ÔÏó
+	private ManagerDAO managerDAO = null; // å£°æ˜ManagerDAOçš„å¯¹è±¡
 
 	public Manager() {
-		this.managerDAO = new ManagerDAO(); // ÊµÀı»¯ManagerDAOÀà
+		this.managerDAO = new ManagerDAO(); // å®ä¾‹åŒ–ManagerDAOç±»
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
-		System.out.println("»ñÈ¡µÄ²éÑ¯×Ö·û´®£º" + action);
+		System.out.println("è·å–çš„æŸ¥è¯¢å­—ç¬¦ä¸²ï¼š" + action);
 		if (action == null || "".equals(action)) {
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
-		} else if ("login".equals(action)) {// µ±actionÖµÎªloginÊ±£¬µ÷ÓÃmanagerLogin()·½·¨ÑéÖ¤¹ÜÀíÔ±Éí·İ
+		} else if ("login".equals(action)) {// å½“actionå€¼ä¸ºloginæ—¶ï¼Œè°ƒç”¨managerLogin()æ–¹æ³•éªŒè¯ç®¡ç†å‘˜èº«ä»½
 			managerLogin(request, response);
 		} else if ("managerAdd".equals(action)) {
-			managerAdd(request, response);// Ìí¼Ó¹ÜÀíÔ±ĞÅÏ¢
+			managerAdd(request, response);// æ·»åŠ ç®¡ç†å‘˜ä¿¡æ¯
 		} else if ("managerQuery".equals(action)) {
-			managerQuery(request, response);// ²éÑ¯¹ÜÀíÔ±¼°È¨ÏŞĞÅÏ¢
+			managerQuery(request, response);// æŸ¥è¯¢ç®¡ç†å‘˜åŠæƒé™ä¿¡æ¯
 		} else if ("managerModifyQuery".equals(action)) {
-			managerModifyQuery(request, response);// ÉèÖÃ¹ÜÀíÔ±È¨ÏŞÊ±²éÑ¯¹ÜÀíÔ±ĞÅÏ¢
+			managerModifyQuery(request, response);// è®¾ç½®ç®¡ç†å‘˜æƒé™æ—¶æŸ¥è¯¢ç®¡ç†å‘˜ä¿¡æ¯
 		} else if ("managerModify".equals(action)) {
-			managerModify(request, response);// ÉèÖÃ¹ÜÀíÔ±È¨ÏŞ
+			managerModify(request, response);// è®¾ç½®ç®¡ç†å‘˜æƒé™
 		} else if ("managerDel".equals(action)) {
-			managerDel(request, response);// É¾³ı¹ÜÀíÔ±
+			managerDel(request, response);// åˆ é™¤ç®¡ç†å‘˜
 		} else if ("querypwd".equals(action)) {
-			pwdQuery(request, response);// ¸ü¸Ä¿ÚÁîÊ±Ó¦ÓÃµÄ²éÑ¯
+			pwdQuery(request, response);// æ›´æ”¹å£ä»¤æ—¶åº”ç”¨çš„æŸ¥è¯¢
 		} else if ("modifypwd".equals(action)) {
-			modifypwd(request, response); // ¸ü¸Ä¿ÚÁî
+			modifypwd(request, response); // æ›´æ”¹å£ä»¤
 		}
 	}
 
-	// ¹ÜÀíÔ±Éí·İÑéÖ¤
+	// ç®¡ç†å‘˜èº«ä»½éªŒè¯
 
 	public void managerLogin(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		ManagerForm managerForm = new ManagerForm();// ÊµÀı»¯managerFormÀà
-		managerForm.setName(request.getParameter("name"));// »ñÈ¡¹ÜÀíÔ±Ãû³Æ²¢ÉèÖÃnameÊôĞÔ
-		managerForm.setPwd(request.getParameter("pwd"));// »ñÈ¡¹ÜÀíÔ±ÃÜÂë²¢ÉèÖÃpwdÊôĞÔ
-		int ret = managerDAO.checkManager(managerForm);// µ÷ÓÃManagerDAOÀàµÄcheckManager()·½·¨
+		ManagerForm managerForm = new ManagerForm();// å®ä¾‹åŒ–managerFormç±»
+		managerForm.setName(request.getParameter("name"));// è·å–ç®¡ç†å‘˜åç§°å¹¶è®¾ç½®nameå±æ€§
+		managerForm.setPwd(request.getParameter("pwd"));// è·å–ç®¡ç†å‘˜å¯†ç å¹¶è®¾ç½®pwdå±æ€§
+		int ret = managerDAO.checkManager(managerForm);// è°ƒç”¨ManagerDAOç±»çš„checkManager()æ–¹æ³•
 		if (ret == 1) {
-			/********** ½«µÇÂ¼µ½ÏµÍ³µÄ¹ÜÀíÔ±Ãû³Æ±£´æµ½sessionÖĞ ***********************************/
+			/********** å°†ç™»å½•åˆ°ç³»ç»Ÿçš„ç®¡ç†å‘˜åç§°ä¿å­˜åˆ°sessionä¸­ ***********************************/
 			HttpSession session = request.getSession();
 			session.setAttribute("manager", managerForm.getName());
-			session.setAttribute("power", managerForm.getName());//½«¸Ã¹ÜÀíÔ±Ãû×Ö´æÈësession£¬ÓÃÓÚ²éÑ¯È¨ÏŞËùÓÃ
+			session.setAttribute("power", managerForm.getName());//å°†è¯¥ç®¡ç†å‘˜åå­—å­˜å…¥sessionï¼Œç”¨äºæŸ¥è¯¢æƒé™æ‰€ç”¨
 			/***********************************************************************************/
-			request.getRequestDispatcher("index.jsp").forward(request, response);// ×ªµ½ÏµÍ³Ö÷½çÃæ
+			request.getRequestDispatcher("index.jsp").forward(request, response);// è½¬åˆ°ç³»ç»Ÿä¸»ç•Œé¢
 		} else {
-			request.setAttribute("error", "ÄúÊäÈëµÄ¹ÜÀíÔ±Ãû³Æ»òÃÜÂë´íÎó£¡");
+			request.setAttribute("error", "æ‚¨è¾“å…¥çš„ç®¡ç†å‘˜åç§°æˆ–å¯†ç é”™è¯¯ï¼");
 			request.getRequestDispatcher("error.jsp")
-					.forward(request, response);// ×ªµ½´íÎóÌáÊ¾Ò³
+					.forward(request, response);// è½¬åˆ°é”™è¯¯æç¤ºé¡µ
 		}
 	}
 
-	// ²éÑ¯¹ÜÀíÔ±ĞÅÏ¢
+	// æŸ¥è¯¢ç®¡ç†å‘˜ä¿¡æ¯
 	private void managerQuery(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String str = null;
@@ -73,99 +73,99 @@ public class Manager extends HttpServlet {
 		request.getRequestDispatcher("manager.jsp").forward(request, response);
 	}
 
-	// Ìí¼Ó¹ÜÀíÔ±ĞÅÏ¢
+	// æ·»åŠ ç®¡ç†å‘˜ä¿¡æ¯
 	private void managerAdd(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ManagerForm managerForm = new ManagerForm();
-		managerForm.setName(request.getParameter("name")); // »ñÈ¡ÉèÖÃ¹ÜÀíÔ±Ãû³Æ
-		managerForm.setPwd(request.getParameter("pwd")); // »ñÈ¡²¢ÉèÖÃÃÜÂë
-		int ret = managerDAO.insert(managerForm); // µ÷ÓÃÌí¼Ó¹ÜÀíÔ±ĞÅÏ¢
+		managerForm.setName(request.getParameter("name")); // è·å–è®¾ç½®ç®¡ç†å‘˜åç§°
+		managerForm.setPwd(request.getParameter("pwd")); // è·å–å¹¶è®¾ç½®å¯†ç 
+		int ret = managerDAO.insert(managerForm); // è°ƒç”¨æ·»åŠ ç®¡ç†å‘˜ä¿¡æ¯
 		if (ret == 1) {
 			request.getRequestDispatcher("manager_ok.jsp?para=1").forward(
-					request, response); // ×ªµ½¹ÜÀíÔ±ĞÅÏ¢Ìí¼Ó³É¹¦Ò³Ãæ
+					request, response); // è½¬åˆ°ç®¡ç†å‘˜ä¿¡æ¯æ·»åŠ æˆåŠŸé¡µé¢
 
 		} else if (ret == 2) {
-			request.setAttribute("error", "¸Ã¹ÜÀíÔ±ĞÅÏ¢ÒÑ¾­Ìí¼Ó£¡"); // ½«´íÎóĞÅÏ¢±£´æµ½error²ÎÊıÖĞ
+			request.setAttribute("error", "è¯¥ç®¡ç†å‘˜ä¿¡æ¯å·²ç»æ·»åŠ ï¼"); // å°†é”™è¯¯ä¿¡æ¯ä¿å­˜åˆ°errorå‚æ•°ä¸­
 			request.getRequestDispatcher("error.jsp")
-					.forward(request, response); // ×ªµ½´íÎóÌáÊ¾Ò³Ãæ
+					.forward(request, response); // è½¬åˆ°é”™è¯¯æç¤ºé¡µé¢
 		} else {
-			request.setAttribute("error", "Ìí¼Ó¹ÜÀíÔ±ĞÅÏ¢Ê§°Ü£¡"); // ½«´íÎóĞÅÏ¢±£´æµ½error²ÎÊıÖĞ
+			request.setAttribute("error", "æ·»åŠ ç®¡ç†å‘˜ä¿¡æ¯å¤±è´¥ï¼"); // å°†é”™è¯¯ä¿¡æ¯ä¿å­˜åˆ°errorå‚æ•°ä¸­
 			request.getRequestDispatcher("error.jsp")
-					.forward(request, response); // ×ªµ½´íÎóÌáÊ¾Ò³Ãæ
+					.forward(request, response); // è½¬åˆ°é”™è¯¯æç¤ºé¡µé¢
 		}
 	}
 
-	// ²éÑ¯ĞŞ¸Ä¹ÜÀíÔ±ĞÅÏ¢
+	// æŸ¥è¯¢ä¿®æ”¹ç®¡ç†å‘˜ä¿¡æ¯
 	private void managerModifyQuery(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ManagerForm managerForm = new ManagerForm();
-		managerForm.setId(Integer.valueOf(request.getParameter("id")));// »ñÈ¡²¢ÉèÖÃ¹ÜÀíIDºÅ
-		System.out.print("²éÑ¯µ½µÄid:" + request.getParameter("id"));
+		managerForm.setId(Integer.valueOf(request.getParameter("id")));// è·å–å¹¶è®¾ç½®ç®¡ç†IDå·
+		System.out.print("æŸ¥è¯¢åˆ°çš„id:" + request.getParameter("id"));
 		request.setAttribute("managerQueryif",
 				managerDAO.query_update(managerForm));
 		request.getRequestDispatcher("manager_Modify.jsp").forward(request,
-				response); // ×ªµ½È¨ÏŞÉèÖÃ³É¹¦Ò³Ãæ
+				response); // è½¬åˆ°æƒé™è®¾ç½®æˆåŠŸé¡µé¢
 	}
 
-	// ĞŞ¸ÄÃÜÂëÊ±²éÑ¯
+	// ä¿®æ”¹å¯†ç æ—¶æŸ¥è¯¢
 	private void pwdQuery(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ManagerForm managerForm = new ManagerForm();
 		HttpSession session = request.getSession();
 		String manager = (String) session.getAttribute("manager");
 		managerForm.setName(manager);
-		System.out.print("²éÑ¯µ½µÄmanager:" + manager);
+		System.out.print("æŸ¥è¯¢åˆ°çš„manager:" + manager);
 		request.setAttribute("pwdQueryif", managerDAO.query_pwd(managerForm));
 		request.getRequestDispatcher("pwd_Modify.jsp").forward(request,
 				response);
 	}
 
-	// ¹ÜÀíÔ±È¨ÏŞÉèÖÃ
+	// ç®¡ç†å‘˜æƒé™è®¾ç½®
 	private void managerModify(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ManagerForm managerForm = new ManagerForm();
-		managerForm.setId(Integer.parseInt(request.getParameter("id"))); // »ñÈ¡²¢ÉèÖÃ¹ÜÀíÔ±IDºÅ
-		managerForm.setName(request.getParameter("name")); // »ñÈ¡²¢ÉèÖÃ¹ÜÀíÔ±Ãû³Æ
-		managerForm.setPwd(request.getParameter("pwd")); // »ñÈ¡²¢ÉèÖÃ¹ÜÀíÔ±ÃÜÂë
+		managerForm.setId(Integer.parseInt(request.getParameter("id"))); // è·å–å¹¶è®¾ç½®ç®¡ç†å‘˜IDå·
+		managerForm.setName(request.getParameter("name")); // è·å–å¹¶è®¾ç½®ç®¡ç†å‘˜åç§°
+		managerForm.setPwd(request.getParameter("pwd")); // è·å–å¹¶è®¾ç½®ç®¡ç†å‘˜å¯†ç 
 		managerForm.setSysset(request.getParameter("sysset") == null ? 0
-				: Integer.parseInt(request.getParameter("sysset"))); // »ñÈ¡²¢ÉèÖÃÏµÍ³ÉèÖÃÈ¨ÏŞ
+				: Integer.parseInt(request.getParameter("sysset"))); // è·å–å¹¶è®¾ç½®ç³»ç»Ÿè®¾ç½®æƒé™
 		managerForm.setReaderset(request.getParameter("readerset") == null ? 0
-				: Integer.parseInt(request.getParameter("readerset"))); // »ñÈ¡²¢ÉèÖÃ¶ÁÕß¹ÜÀíÈ¨ÏŞ
+				: Integer.parseInt(request.getParameter("readerset"))); // è·å–å¹¶è®¾ç½®è¯»è€…ç®¡ç†æƒé™
 		managerForm.setBookset(request.getParameter("bookset") == null ? 0
-				: Integer.parseInt(request.getParameter("bookset"))); // »ñÈ¡²¢ÉèÖÃÍ¼Êé¹ÜÀíÈ¨ÏŞ
+				: Integer.parseInt(request.getParameter("bookset"))); // è·å–å¹¶è®¾ç½®å›¾ä¹¦ç®¡ç†æƒé™
 		managerForm
 				.setBorrowback(request.getParameter("borrowback") == null ? 0
-						: Integer.parseInt(request.getParameter("borrowback"))); // »ñÈ¡²¢ÉèÖÃÍ¼Êé½è»¹È¨ÏŞ
+						: Integer.parseInt(request.getParameter("borrowback"))); // è·å–å¹¶è®¾ç½®å›¾ä¹¦å€Ÿè¿˜æƒé™
 		managerForm.setSysquery(request.getParameter("sysquery") == null ? 0
-				: Integer.parseInt(request.getParameter("sysquery"))); // »ñÈ¡²¢ÉèÖÃÏµÍ³²éÑ¯È¨ÏŞ
-		int ret = managerDAO.update(managerForm); // µ÷ÓÃÉèÖÃ¹ÜÀíÔ±È¨ÏŞµÄ·½·¨
+				: Integer.parseInt(request.getParameter("sysquery"))); // è·å–å¹¶è®¾ç½®ç³»ç»ŸæŸ¥è¯¢æƒé™
+		int ret = managerDAO.update(managerForm); // è°ƒç”¨è®¾ç½®ç®¡ç†å‘˜æƒé™çš„æ–¹æ³•
 		if (ret == 0) {
-			request.setAttribute("error", "ÉèÖÃ¹ÜÀíÔ±È¨ÏŞÊ§°Ü£¡"); // ±£´æ´íÎóÌáÊ¾ĞÅÏ¢µ½error²ÎÊıÖĞ
+			request.setAttribute("error", "è®¾ç½®ç®¡ç†å‘˜æƒé™å¤±è´¥ï¼"); // ä¿å­˜é”™è¯¯æç¤ºä¿¡æ¯åˆ°errorå‚æ•°ä¸­
 			request.getRequestDispatcher("error.jsp")
-					.forward(request, response); // ×ªµ½´íÎóÌáÊ¾Ò³Ãæ
+					.forward(request, response); // è½¬åˆ°é”™è¯¯æç¤ºé¡µé¢
 		} else {
 			request.getRequestDispatcher("manager_ok.jsp?para=2").forward(
-					request, response);// ×ªµ½È¨ÏŞÉèÖÃ³É¹¦Ò³Ãæ
+					request, response);// è½¬åˆ°æƒé™è®¾ç½®æˆåŠŸé¡µé¢
 		}
 	}
 
-	// É¾³ı¹ÜÀíÔ±ĞÅÏ¢
+	// åˆ é™¤ç®¡ç†å‘˜ä¿¡æ¯
 	private void managerDel(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ManagerForm managerForm = new ManagerForm();
-		managerForm.setId(Integer.valueOf(request.getParameter("id"))); // »ñÈ¡²¢ÉèÖÃ¹ÜÀíÔ±IDºÅ
-		int ret = managerDAO.delete(managerForm); // µ÷ÓÃÉ¾³ıĞÅÏ¢µÄ·½·¨delete()
+		managerForm.setId(Integer.valueOf(request.getParameter("id"))); // è·å–å¹¶è®¾ç½®ç®¡ç†å‘˜IDå·
+		int ret = managerDAO.delete(managerForm); // è°ƒç”¨åˆ é™¤ä¿¡æ¯çš„æ–¹æ³•delete()
 		if (ret == 0) {
-			request.setAttribute("error", "É¾³ı¹ÜÀíÔ±ĞÅÏ¢Ê§°Ü£¡"); // ±£´æ´íÎóÌáÊ¾ĞÅÏ¢µ½error²ÎÊıÖĞ
+			request.setAttribute("error", "åˆ é™¤ç®¡ç†å‘˜ä¿¡æ¯å¤±è´¥ï¼"); // ä¿å­˜é”™è¯¯æç¤ºä¿¡æ¯åˆ°errorå‚æ•°ä¸­
 			request.getRequestDispatcher("error.jsp")
-					.forward(request, response); // ×ªµ½´íÎóÌáÊ¾Ò³Ãæ
+					.forward(request, response); // è½¬åˆ°é”™è¯¯æç¤ºé¡µé¢
 		} else {
 			request.getRequestDispatcher("manager_ok.jsp?para=3").forward(
-					request, response); // ×ªµ½É¾³ı¹ÜÀíÔ±ĞÅÏ¢³É¹¦Ò³Ãæ
+					request, response); // è½¬åˆ°åˆ é™¤ç®¡ç†å‘˜ä¿¡æ¯æˆåŠŸé¡µé¢
 		}
 	}
 
-	// ĞŞ¸Ä¹ÜÀíÔ±ÃÜÂë
+	// ä¿®æ”¹ç®¡ç†å‘˜å¯†ç 
 	private void modifypwd(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ManagerForm managerForm = new ManagerForm();
@@ -173,7 +173,7 @@ public class Manager extends HttpServlet {
 		managerForm.setPwd(request.getParameter("pwd"));
 		int ret = managerDAO.updatePwd(managerForm);
 		if (ret == 0) {
-			request.setAttribute("error", "¸ü¸Ä¿ÚÁîÊ§°Ü£¡");
+			request.setAttribute("error", "æ›´æ”¹å£ä»¤å¤±è´¥ï¼");
 			request.getRequestDispatcher("error.jsp")
 					.forward(request, response);
 		} else {

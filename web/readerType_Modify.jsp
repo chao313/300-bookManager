@@ -1,7 +1,7 @@
 <%@page import="com.core.ChStr"%>
 <%@page import="com.actionForm.ReaderTypeForm"%>
 <%@page import="com.actionForm.ReaderForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -14,7 +14,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>ÐÞ¸Ä¶ÁÕßÀàÐÍÐÅÏ¢</title>
+<title>ä¿®æ”¹è¯»è€…ç±»åž‹ä¿¡æ¯</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -35,22 +35,22 @@
 		<input name="id" type="hidden" size="50" value="<%=readerTypeForm.getId()%>">
 		<table border="0px" style="width:270px;height:120px;">
 			<tr>
-				<td width="35%">ÀàÐÍÃû³Æ£º</td>
+				<td width="35%">ç±»åž‹åç§°ï¼š</td>
 				<td><input name="name" type="text"
 					value="<%=readerTypeForm.getName()%>"></td>
 			</tr>
 			<tr>
-				<td>¿É½èÊýÁ¿£º</td>
+				<td>å¯å€Ÿæ•°é‡ï¼š</td>
 				<td><input name="number" type="text" size="13px"
-					value="<%=readerTypeForm.getNumber()%>"> (±¾)</td>
+					value="<%=readerTypeForm.getNumber()%>"> (æœ¬)</td>
 			</tr>
 			<tr>
 			<tr>
 				<td colspan="2" align="center"><input name="Submit"
-					type="submit" id="blueButton" value="±£´æ">&nbsp;<input
-					name="Submit2" type="reset" id="orangeButton" value="ÖØÖÃ">&nbsp;<input
+					type="submit" id="blueButton" value="ä¿å­˜">&nbsp;<input
+					name="Submit2" type="reset" id="orangeButton" value="é‡ç½®">&nbsp;<input
 					name="Submit3" type="button" id="redButton"
-					onClick="window.close()" value="¹Ø±Õ"></td>
+					onClick="window.close()" value="å…³é—­"></td>
 			</tr>
 		</table>
 	</form>

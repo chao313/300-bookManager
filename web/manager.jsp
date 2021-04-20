@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.ManagerForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -16,7 +16,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>ͼ�����ϵͳ</title>
+<title>图书管理系统</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -75,10 +75,10 @@ a:visited {
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">����ǰ��λ�ã�</li>
-					<li><a href="#">ϵͳ����</a></li>
+					<li style="margin-left: 25px;">您当前的位置：</li>
+					<li><a href="#">系统设置</a></li>
 					<li>></li>
-					<li><a href="#">����Ա����</a></li>
+					<li><a href="#">管理员设置</a></li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -88,16 +88,16 @@ a:visited {
 				<table id="table1" border="0" cellspacing="" cellpadding="">
 					<tr>
 						<td align="center">
-							<button type="button" id="orangeButton">���ӹ���Ա��Ϣ
+							<button type="button" id="orangeButton">添加管理员信息
 						</td>
 					</tr>
 					<tr>
-						<td>���޹���Ա��Ϣ�������ӹ���Ա</td>
+						<td>暂无管理员信息！请添加管理员</td>
 					</tr>
 				</table>
 				<%
 					} else {
-						//ͨ��������ʽ��ʾ����
+						//通过迭代方式显示数据
 						Iterator it = coll.iterator();
 						int ID = 0;
 						String name = "";
@@ -111,20 +111,20 @@ a:visited {
 					<tr>
 						<td align="right"><button type="button" id="orangeButton">
 								<a
-									onClick="window.open('manager_add.jsp','','width=320,height=160,top=250,left=550')">���ӹ���Ա��Ϣ</a>
+									onClick="window.open('manager_add.jsp','','width=320,height=160,top=250,left=550')">添加管理员信息</a>
 							</button></td>
 					</tr>
 					<tr>
 						<td>
 							<table id="table2" border="1" cellspacing="0" cellpadding="0">
 								<tr align="center" bgcolor="#e3F4F7">
-									<th width="23%">����Ա����</th>
-									<th width="12%">ϵͳ����</th>
-									<th width="12%">���߹���</th>
-									<th width="12%">ͼ�����</th>
-									<th width="11%">ͼ��軹</th>
-									<th width="10%">ϵͳ��ѯ</th>
-									<th width="20%">����</th>
+									<th width="23%">管理员名称</th>
+									<th width="12%">系统设置</th>
+									<th width="12%">读者管理</th>
+									<th width="12%">图书管理</th>
+									<th width="11%">图书借还</th>
+									<th width="10%">系统查询</th>
+									<th width="20%">操作</th>
 								</tr>
 								<%
 									while (it.hasNext()) {
@@ -170,10 +170,10 @@ a:visited {
 											if (!name.equals(flag)) {
 										%><button type="button" id="blueButton">
 											<a
-												onClick="window.open('manager?action=managerModifyQuery&id=<%=ID%>','','width=370,height=180,top=250,left=550')">Ȩ������</a>
+												onClick="window.open('manager?action=managerModifyQuery&id=<%=ID%>','','width=370,height=180,top=250,left=550')">权限设置</a>
 										</button>&nbsp&nbsp&nbsp
 										<button type="button" id="redButton">
-											<a href="manager?action=managerDel&id=<%=ID%>">ɾ��</a>
+											<a href="manager?action=managerDel&id=<%=ID%>">删除</a>
 										</button> <%
  	} else {
  %>&nbsp;<%

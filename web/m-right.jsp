@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.dao.BorrowDAO"%>
 <%@ page import="com.actionForm.BorrowForm"%>
 <%@ page import="java.util.*"%>
@@ -14,7 +14,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -31,10 +31,10 @@
 		<div class="right-nav">
 			<ul>
 				<li><img src="images/home.png"></li>
-				<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-				<li><a href="#">Ê×Ò³</a></li>
+				<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+				<li><a href="#">é¦–é¡µ</a></li>
 				<li>></li>
-				<li><a href="#">Í¼Êé½èÔÄÅÅÐÐ°ñ</a></li>
+				<li><a href="#">å›¾ä¹¦å€Ÿé˜…æŽ’è¡Œæ¦œ</a></li>
 			</ul>
 		</div>
 		<div id="right-buttom" style="overflow: auto;">
@@ -68,15 +68,15 @@
 																bordercolor="#00a9da" bordercolordark="#B7B6B6"
 																bordercolorlight="#FFFFFF">
 																<tr align="center">
-																	<td width="5%" height="25">ÅÅÃû</td>
-																	<td width="10%">Í¼ÊéÌõÐÎÂë</td>
-																	<td width="24%">Í¼ÊéÃû³Æ</td>
-																	<td width="10%">Í¼ÊéÀàÐÍ</td>
-																	<td width="10%">Êé¼Ü</td>
-																	<td width="14%">³ö°æÉç</td>
-																	<td width="11%">×÷Õß</td>
-																	<td>¶¨¼Û(Ôª)</td>
-																	<td>½èÔÄ´ÎÊý</td>
+																	<td width="5%" height="25">æŽ’å</td>
+																	<td width="10%">å›¾ä¹¦æ¡å½¢ç </td>
+																	<td width="24%">å›¾ä¹¦åç§°</td>
+																	<td width="10%">å›¾ä¹¦ç±»åž‹</td>
+																	<td width="10%">ä¹¦æž¶</td>
+																	<td width="14%">å‡ºç‰ˆç¤¾</td>
+																	<td width="11%">ä½œè€…</td>
+																	<td>å®šä»·(å…ƒ)</td>
+																	<td>å€Ÿé˜…æ¬¡æ•°</td>
 																</tr>
 																<%
 																	if (coll_book != null && !coll_book.isEmpty()) {

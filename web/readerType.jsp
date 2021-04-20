@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.ReaderTypeForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -15,7 +15,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -74,10 +74,10 @@ a:visited {
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">¶ÁÕß¹ÜÀí</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">è¯»è€…ç®¡ç†</a></li>
 					<li>></li>
-					<li> ¶ÁÕßÀàÐÍ¹ÜÀí</li>
+					<li> è¯»è€…ç±»åž‹ç®¡ç†</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -87,16 +87,16 @@ a:visited {
 				<table id="table1" border="0" cellspacing="" cellpadding="">
 					<tr>
 						<td align="center">
-							<button type="button" id="orangeButton">Ìí¼Ó¶ÁÕßÀàÐÍÐÅÏ¢
+							<button type="button" id="orangeButton">æ·»åŠ è¯»è€…ç±»åž‹ä¿¡æ¯
 						</td>
 					</tr>
 					<tr>
-						<td>°¥ßÏ£¬Ã»ÓÐ¶ÁÕßÀàÐÍÀ²£¬ÇëÌí¼Ó¶ÁÕßÀàÐÍ£¡</td>
+						<td>å“Žå‘¦ï¼Œæ²¡æœ‰è¯»è€…ç±»åž‹å•¦ï¼Œè¯·æ·»åŠ è¯»è€…ç±»åž‹ï¼</td>
 					</tr>
 				</table>
 				<%
 					} else {
-						//Í¨¹ýµü´ú·½Ê½ÏÔÊ¾Êý¾Ý
+						//é€šè¿‡è¿­ä»£æ–¹å¼æ˜¾ç¤ºæ•°æ®
 						Iterator it = coll.iterator();
 						int ID = 0;
 						String name = "";
@@ -106,16 +106,16 @@ a:visited {
 					<tr>
 						<td align="right"><a
 							onClick="window.open('readerType_add.jsp','','width=292,height=160,top=250,left=550')"><button
-									type="button" id="orangeButton">Ìí¼Ó¶ÁÕßÀàÐÍÐÅÏ¢</a>
+									type="button" id="orangeButton">æ·»åŠ è¯»è€…ç±»åž‹ä¿¡æ¯</a>
 							</button></td>
 					</tr>
 					<tr>
 						<td>
 							<table id="table2" border="1px" cellspacing="0" cellpadding="0">
 								<tr align="center" bgcolor="#e3F4F7">
-									<th width="35%" bgcolor="#00a9da">¶ÁÕßÀàÐÍÃû³Æ</th>
-									<th width="35%" bgcolor="#00a9da">¿É½èÊýÁ¿</th>
-									<th width="30%" bgcolor="#00a9da">²Ù×÷</th>
+									<th width="35%" bgcolor="#00a9da">è¯»è€…ç±»åž‹åç§°</th>
+									<th width="35%" bgcolor="#00a9da">å¯å€Ÿæ•°é‡</th>
+									<th width="30%" bgcolor="#00a9da">æ“ä½œ</th>
 								</tr>
 								<%
 									while (it.hasNext()) {
@@ -128,10 +128,10 @@ a:visited {
 									<td style="text-align:center;">&nbsp;<%=name%></td>
 									<td style="text-align:center;">&nbsp;<%=number%></td>
 									<td align="center"><button type="button" id="blueButton">
-											<a onClick="window.open('readerType?action=readerTypeModifyQuery&ID=<%=ID%>','','width=292,height=175,top=250,left=550')">ÐÞ¸Ä</a>
+											<a onClick="window.open('readerType?action=readerTypeModifyQuery&ID=<%=ID%>','','width=292,height=175,top=250,left=550')">ä¿®æ”¹</a>
 										</button>&nbsp
 										<button type="button" id="redButton">
-											<a href="readerType?action=readerTypeDel&ID=<%=ID%>">É¾³ý</a>
+											<a href="readerType?action=readerTypeDel&ID=<%=ID%>">åˆ é™¤</a>
 										</button></td>
 								</tr>
 								<%

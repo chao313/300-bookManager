@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.dao.BorrowDAO"%>
 <%@ page import="com.actionForm.BorrowForm"%>
 <%@ page import="com.actionForm.ReaderForm"%>
@@ -21,7 +21,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹İ¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -38,7 +38,7 @@
 <script language="javascript">
 	function checkreader(form) {
 		if (form.barcode.value == "") {
-			alert("ÇëÊäÈë¶ÁÕßÌõĞÎÂë!");
+			alert("è¯·è¾“å…¥è¯»è€…æ¡å½¢ç !");
 			form.barcode.focus();
 			return;
 		}
@@ -46,18 +46,18 @@
 	}
 	function checkbook(form) {
 		if (form.barcode.value == "") {
-			alert("ÇëÊäÈë¶ÁÕßÌõĞÎÂë!");
+			alert("è¯·è¾“å…¥è¯»è€…æ¡å½¢ç !");
 			form.barcode.focus();
 			return;
 		}
 		if (form.inputkey.value == "") {
-			alert("ÇëÊäÈë²éÑ¯¹Ø¼ü×Ö!");
+			alert("è¯·è¾“å…¥æŸ¥è¯¢å…³é”®å­—!");
 			form.inputkey.focus();
 			return;
 		}
 
 		if (form.number.value - form.borrowNumber.value <= 0) {
-			alert("Äú²»ÄÜÔÙ½èÔÄÆäËûÍ¼ÊéÁË!");
+			alert("æ‚¨ä¸èƒ½å†å€Ÿé˜…å…¶ä»–å›¾ä¹¦äº†!");
 			return;
 		}
 		form.submit();
@@ -76,10 +76,10 @@
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">Í¼Êé½è»¹</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">å›¾ä¹¦å€Ÿè¿˜</a></li>
 					<li>></li>
-					<li>Í¼Êé½èÔÄ</li>
+					<li>å›¾ä¹¦å€Ÿé˜…</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -129,10 +129,10 @@
 																<td width="24%" height="18"
 																	style="padding-left:7px;padding-top:7px;"><img
 																	src="images/reader_checkbg.jpg" width="142" height="18"></td>
-																<td width="76%" style="padding-top:7px;">¶ÁÕßÌõĞÎÂë£º <input
+																<td width="76%" style="padding-top:7px;">è¯»è€…æ¡å½¢ç ï¼š <input
 																	name="barcode" type="text" id="barcode"
 																	value="<%=barcode%>" size="24"> &nbsp; <input
-																	name="Button" id="blueButton" type="button" class="btn_grey" value="È·¶¨"
+																	name="Button" id="blueButton" type="button" class="btn_grey" value="ç¡®å®š"
 																	onClick="checkreader(form1)"></td>
 															</tr>
 														</table></td>
@@ -145,22 +145,22 @@
 													<td align="center"><table width="96%" border="0"
 															cellpadding="0" cellspacing="0">
 															<tr>
-																<td height="27">ĞÕ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ãû£º
+																<td height="27">å§“&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;åï¼š
 																	<input name="readername" type="text" id="readername"
 																	value="<%=name%>">
 																</td>
-																<td>ĞÔ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;±ğ£º <input
+																<td>æ€§&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;åˆ«ï¼š <input
 																	name="sex" type="text" id="sex" value="<%=sex%>"></td>
-																<td>¶ÁÕßÀàĞÍ£º <input name="readerType" type="text"
+																<td>è¯»è€…ç±»å‹ï¼š <input name="readerType" type="text"
 																	id="readerType" value="<%=typename%>"></td>
 															</tr>
 															<tr>
-																<td height="27">Ö¤¼şÀàĞÍ£º <input name="paperType"
+																<td height="27">è¯ä»¶ç±»å‹ï¼š <input name="paperType"
 																	type="text" id="paperType" value="<%=paperType%>"></td>
-																<td>Ö¤¼şºÅÂë£º <input name="paperNo" type="text"
+																<td>è¯ä»¶å·ç ï¼š <input name="paperNo" type="text"
 																	id="paperNo" value="<%=paperNO%>"></td>
-																<td>¿É½èÊıÁ¿£º <input name="number" type="text"
-																	id="number" value="<%=number%>"> (²á) &nbsp;
+																<td>å¯å€Ÿæ•°é‡ï¼š <input name="number" type="text"
+																	id="number" value="<%=number%>"> (å†Œ) &nbsp;
 																</td>
 															</tr>
 														</table></td>
@@ -169,16 +169,16 @@
 										</td>
 									</tr>
 									<tr>
-										<td height="32" background="images/borrow_if (2).gif">&nbsp;Ìí¼ÓµÄÒÀ¾İ£º
+										<td height="32" background="images/borrow_if (2).gif">&nbsp;æ·»åŠ çš„ä¾æ®ï¼š
 											<input name="f" type="radio" class="noborder" value="barcode"
-											checked> Í¼ÊéÌõĞÎÂë &nbsp;&nbsp; <input name="f"
+											checked> å›¾ä¹¦æ¡å½¢ç  &nbsp;&nbsp; <input name="f"
 											type="radio" class="noborder" value="bookname">
-											Í¼ÊéÃû³Æ&nbsp;&nbsp; <input name="inputkey" type="text"
+											å›¾ä¹¦åç§°&nbsp;&nbsp; <input name="inputkey" type="text"
 											id="inputkey" size="50"> <input name="Submit2"
-											type="button" id="blueButton" class="btn_grey" value="È·¶¨"
+											type="button" id="blueButton" class="btn_grey" value="ç¡®å®š"
 											onClick="checkbook(form1)"> <%-- <input name="operator"
 											type="hidden" id="operator" value="<%=manager%>"> --%> <input
-											name="Button" id="orangeButton" type="button" class="btn_grey" value="Íê³É½èÔÄ"
+											name="Button" id="orangeButton" type="button" class="btn_grey" value="å®Œæˆå€Ÿé˜…"
 											onClick="window.location.href='bookBorrow.jsp'">
 										</td>
 									</tr>
@@ -188,12 +188,12 @@
 												bordercolor="#FFFFFF" bordercolorlight="#FFFFFF"
 												bordercolordark="#F6B83B" bgcolor="#FFFFFF">
 												<tr align="center" bgcolor="#00a9da">
-													<td width="29%" height="25">Í¼ÊéÃû³Æ</td>
-													<td width="12%">½èÔÄÊ±¼ä</td>
-													<td width="14%">Ó¦»¹Ê±¼ä</td>
-													<td width="17%">³ö°æÉç</td>
-													<td width="14%">Êé¼Ü</td>
-													<td colspan="2">¶¨¼Û(Ôª)</td>
+													<td width="29%" height="25">å›¾ä¹¦åç§°</td>
+													<td width="12%">å€Ÿé˜…æ—¶é—´</td>
+													<td width="14%">åº”è¿˜æ—¶é—´</td>
+													<td width="17%">å‡ºç‰ˆç¤¾</td>
+													<td width="14%">ä¹¦æ¶</td>
+													<td colspan="2">å®šä»·(å…ƒ)</td>
 												</tr>
 												<%
 													String bookname = "";

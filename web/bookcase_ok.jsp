@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>操作成功!</title>
+    <title>鎿嶄綔鎴愬姛!</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,7 +28,7 @@ switch(para){
 	case 1:
 	%>
 		<script language="javascript">
-		alert("书架信息添加成功!");
+		alert("涔︽灦淇℃伅娣诲姞鎴愬姛!");
 		//parent.window.location.href="bookCase?action=bookCaseQuery";
 		opener.location.reload();
 		window.close();
@@ -37,7 +37,7 @@ switch(para){
 	case 2:
 	%>
 		<script language="javascript">
-		alert("书架信息修改成功!");
+		alert("涔︽灦淇℃伅淇敼鎴愬姛!");
 		opener.location.reload();
 		window.close();
 		</script>		
@@ -45,7 +45,7 @@ switch(para){
 	case 3:
 	%>
 		<script language="javascript">
-		alert("书架信息删除成功!");
+		alert("涔︽灦淇℃伅鍒犻櫎鎴愬姛!");
 		window.location.href="bookCase?action=bookCaseQuery";
 		</script>		
 	<%	break;

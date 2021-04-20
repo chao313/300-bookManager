@@ -63,9 +63,9 @@ public class LibraryDAO {
 		try {
 			ret = conn.executeUpdate(sql);
 		} catch (Exception e) {
-			System.out.println("ĞŞ¸ÄÍ¼Êé¹İĞÅÏ¢£º" + e.getMessage());
+			System.out.println("ä¿®æ”¹å›¾ä¹¦é¦†ä¿¡æ¯ï¼š" + e.getMessage());
 		}
-		System.out.println("ĞŞ¸ÄÍ¼Êé¹İĞÅÏ¢Ê±µÄSQL£º" + sql);
+		System.out.println("ä¿®æ”¹å›¾ä¹¦é¦†ä¿¡æ¯æ—¶çš„SQLï¼š" + sql);
 		conn.close();
 		return ret;
 	}

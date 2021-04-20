@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.dao.BorrowDAO"%>
 <%@ page import="com.actionForm.BorrowForm"%>
 <%@ page import="java.util.*"%>
@@ -17,7 +17,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹İ¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -29,27 +29,27 @@
 <script language="javascript">
 	function check(myform) {
 		if (myform.flag[0].checked == false && myform.flag[1].checked == false) {
-			alert("ÇëÑ¡Ôñ²éÑ¯·½Ê½!");
+			alert("è¯·é€‰æ‹©æŸ¥è¯¢æ–¹å¼!");
 			return false;
 		}
 		if (myform.flag[1].checked) {
 			if (myform.sdate.value == "") {
-				alert("ÇëÊäÈë¿ªÊ¼ÈÕÆÚ");
+				alert("è¯·è¾“å…¥å¼€å§‹æ—¥æœŸ");
 				myform.sdate.focus();
 				return false;
 			}
 			if (CheckDate(myform.sdate.value)) {
-				alert("ÄúÊäÈëµÄ¿ªÊ¼ÈÕÆÚ²»ÕıÈ·£¨Èç£º2011-02-14£©\n Çë×¢ÒâÈòÄê!");
+				alert("æ‚¨è¾“å…¥çš„å¼€å§‹æ—¥æœŸä¸æ­£ç¡®ï¼ˆå¦‚ï¼š2011-02-14ï¼‰\n è¯·æ³¨æ„é—°å¹´!");
 				myform.sDate.focus();
 				return false;
 			}
 			if (myform.edate.value == "") {
-				alert("ÇëÊäÈë½áÊøÈÕÆÚ");
+				alert("è¯·è¾“å…¥ç»“æŸæ—¥æœŸ");
 				myform.edate.focus();
 				return false;
 			}
 			if (CheckDate(myform.edate.value)) {
-				alert("ÄúÊäÈëµÄ½áÊøÈÕÆÚ²»ÕıÈ·£¨Èç£º2011-02-14£©\n Çë×¢ÒâÈòÄê!");
+				alert("æ‚¨è¾“å…¥çš„ç»“æŸæ—¥æœŸä¸æ­£ç¡®ï¼ˆå¦‚ï¼š2011-02-14ï¼‰\n è¯·æ³¨æ„é—°å¹´!");
 				myform.edate.focus();
 				return false;
 			}
@@ -69,10 +69,10 @@
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">ÏµÍ³²éÑ¯</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">ç³»ç»ŸæŸ¥è¯¢</a></li>
 					<li>></li>
-					<li>Í¼Êé½èÔÄ²éÑ¯</li>
+					<li>å›¾ä¹¦å€Ÿé˜…æŸ¥è¯¢</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -84,20 +84,20 @@
 								src="images/search3.gif" width="45" height="28"></td>
 							<td height="29" bgcolor="#00a9da"><input name="flag"
 								type="checkbox" class="noborder" value="a" checked>
-								ÇëÑ¡Ôñ²éÑ¯ÒÀ¾İ£º <select name="f" class="wenbenkuang" id="f">
-									<option value="barcode">Í¼ÊéÌõĞÎÂë</option>
-									<option value="bookname">Í¼ÊéÃû³Æ</option>
-									<option value="readerbarcode">¶ÁÕßÌõĞÎÂë</option>
-									<option value="readername">¶ÁÕßÃû³Æ</option>
+								è¯·é€‰æ‹©æŸ¥è¯¢ä¾æ®ï¼š <select name="f" class="wenbenkuang" id="f">
+									<option value="barcode">å›¾ä¹¦æ¡å½¢ç </option>
+									<option value="bookname">å›¾ä¹¦åç§°</option>
+									<option value="readerbarcode">è¯»è€…æ¡å½¢ç </option>
+									<option value="readername">è¯»è€…åç§°</option>
 							</select> <input name="key" type="text" id="key" size="50"> <input
-								name="Submit" id="redbutton" type="submit" class="btn_grey" value="²éÑ¯"
+								name="Submit" id="redbutton" type="submit" class="btn_grey" value="æŸ¥è¯¢"
 								onClick="return check(myform)"></td>
 						</tr>
 						<tr>
 							<td height="26" bgcolor="#00a9da"><input name="flag"
-								type="checkbox" class="noborder" value="b"> ½èÔÄÊ±¼ä£º ´Ó <input
-								name="sdate" type="text" id="sdate"> µ½ <input
-								name="edate" type="text" id="edate"> (ÈÕÆÚ¸ñÊ½Îª£º2016-01-01)</td>
+								type="checkbox" class="noborder" value="b"> å€Ÿé˜…æ—¶é—´ï¼š ä» <input
+								name="sdate" type="text" id="sdate"> åˆ° <input
+								name="edate" type="text" id="edate"> (æ—¥æœŸæ ¼å¼ä¸ºï¼š2016-01-01)</td>
 						</tr>
 					</table>
 				</form>
@@ -107,12 +107,12 @@
 				<table width="100%" height="30" border="0" cellpadding="0"
 					cellspacing="0">
 					<tr>
-						<td height="36" align="center">ÔİÎŞÍ¼Êé½èÔÄĞÅÏ¢£¡</td>
+						<td height="36" align="center">æš‚æ— å›¾ä¹¦å€Ÿé˜…ä¿¡æ¯ï¼</td>
 					</tr>
 				</table>
 				<%
 					} else {
-						//Í¨¹ıµü´ú·½Ê½ÏÔÊ¾Êı¾İ
+						//é€šè¿‡è¿­ä»£æ–¹å¼æ˜¾ç¤ºæ•°æ®
 						Iterator it = coll.iterator();
 						String bookname = "";
 						String bookbarcode = "";
@@ -127,13 +127,13 @@
 					bordercolor="#FFFFFF" bordercolordark="#F6B83B"
 					bordercolorlight="#FFFFFF">
 					<tr align="center" bgcolor="#e3F4F7">
-						<td width="11%" bgcolor="#00a9da">Í¼ÊéÌõĞÎÂë</td>
-						<td width="29%" bgcolor="#00a9da">Í¼ÊéÃû³Æ</td>
-						<td width="15%" bgcolor="#00a9da">¶ÁÕßÌõĞÎÂë</td>
-						<td width="13%" bgcolor="#00a9da">¶ÁÕßÃû³Æ</td>
-						<td width="12%" bgcolor="#00a9da">½èÔÄÊ±¼ä</td>
-						<td width="12%" bgcolor="#00a9da">Ó¦»¹Ê±¼ä</td>
-						<td width="8%" bgcolor="#00a9da">ÊÇ·ñ¹é»¹</td>
+						<td width="11%" bgcolor="#00a9da">å›¾ä¹¦æ¡å½¢ç </td>
+						<td width="29%" bgcolor="#00a9da">å›¾ä¹¦åç§°</td>
+						<td width="15%" bgcolor="#00a9da">è¯»è€…æ¡å½¢ç </td>
+						<td width="13%" bgcolor="#00a9da">è¯»è€…åç§°</td>
+						<td width="12%" bgcolor="#00a9da">å€Ÿé˜…æ—¶é—´</td>
+						<td width="12%" bgcolor="#00a9da">åº”è¿˜æ—¶é—´</td>
+						<td width="8%" bgcolor="#00a9da">æ˜¯å¦å½’è¿˜</td>
 					</tr>
 					<%
 						while (it.hasNext()) {
@@ -146,9 +146,9 @@
 								backTime = borrowForm.getBackTime();
 								ifback = borrowForm.getIfBack();
 								if (ifback == 0) {
-									ifbackstr = "Î´¹é»¹";
+									ifbackstr = "æœªå½’è¿˜";
 								} else {
-									ifbackstr = "ÒÑ¹é»¹";
+									ifbackstr = "å·²å½’è¿˜";
 								}
 					%>
 					<tr>

@@ -8,7 +8,7 @@ import com.actionForm.ReaderForm;
 public class ReaderDAO {
 	private ConnDB conn = new ConnDB();
 
-	// ²éÑ¯Êı¾İ
+	// æŸ¥è¯¢æ•°æ®
 	public Collection query(String strif) {
 		ReaderForm readerForm = null;
 		Collection readerColl = new ArrayList();
@@ -49,7 +49,7 @@ public class ReaderDAO {
 		return readerColl;
 	}
 
-	// ÓÃÓÚĞŞ¸ÄµÄ²éÑ¯
+	// ç”¨äºä¿®æ”¹çš„æŸ¥è¯¢
 	public ReaderForm queryM(ReaderForm readerForm) {
 		ReaderForm readerForm1 = null;
 		String sql = "";
@@ -60,7 +60,7 @@ public class ReaderDAO {
 			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id where r.barcode="
 					+ readerForm.getBarcode() + "";
 		}
-		System.out.println("ĞŞ¸Ä¶ÁÕßĞÅÏ¢Ê±µÄSQL£º" + sql);
+		System.out.println("ä¿®æ”¹è¯»è€…ä¿¡æ¯æ—¶çš„SQLï¼š" + sql);
 		ResultSet rs = conn.executeQuery(sql);
 		String birthday = "";
 		try {
@@ -91,7 +91,7 @@ public class ReaderDAO {
 		return readerForm1;
 	}
 
-	// Ìí¼ÓÊı¾İ
+	// æ·»åŠ æ•°æ®
 	public int insert(ReaderForm readerForm) {
 		String sql1 = "SELECT * FROM tb_reader WHERE barcode='"
 				+ readerForm.getBarcode() + "'";
@@ -156,7 +156,7 @@ public class ReaderDAO {
 							+ readerForm.getTypeid() + ")";
 				}
 				falg = conn.executeUpdate(sql);
-				System.out.println("Ìí¼Ó¶ÁÕßĞÅÏ¢µÄSQL£º" + sql);
+				System.out.println("æ·»åŠ è¯»è€…ä¿¡æ¯çš„SQLï¼š" + sql);
 				conn.close();
 			}
 		} catch (SQLException ex) {
@@ -166,7 +166,7 @@ public class ReaderDAO {
 		return falg;
 	}
 
-	// ĞŞ¸ÄÊı¾İ
+	// ä¿®æ”¹æ•°æ®
 	public int update(ReaderForm readerForm) {
 		String sql = "";
 		if (readerForm.getBirthday() == "") {
@@ -192,17 +192,17 @@ public class ReaderDAO {
 					+ readerForm.getId() + "";
 		}
 		int falg = conn.executeUpdate(sql);
-		System.out.println("ĞŞ¸ÄÊı¾İÊ±µÄSQL£º" + sql);
+		System.out.println("ä¿®æ”¹æ•°æ®æ—¶çš„SQLï¼š" + sql);
 		conn.close();
 		return falg;
 	}
 
-	// É¾³ıÊı¾İ
+	// åˆ é™¤æ•°æ®
 	public int delete(ReaderForm readerForm) {
 		String sql = "Delete from tb_reader where id=" + readerForm.getId()
 				+ "";
 		int falg = conn.executeUpdate(sql);
-		System.out.println("É¾³ıÊ±µÄSQL£º" + sql);
+		System.out.println("åˆ é™¤æ—¶çš„SQLï¼š" + sql);
 		return falg;
 	}
 }

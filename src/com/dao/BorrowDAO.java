@@ -23,10 +23,10 @@ public class BorrowDAO {
 		return ret;
 	}
 
-	// *****************************Í¼Êé½èÔÄ******************************
+	// *****************************å›¾ä¹¦å€Ÿé˜…******************************
 	public int insertBorrow(ReaderForm readerForm, BookForm bookForm,
 			String operator) {
-		// »ñÈ¡ÏµÍ³ÈÕÆÚ
+		// è·å–ç³»ç»Ÿæ—¥æœŸ
 		Date dateU = new Date();
 		java.sql.Date date = new java.sql.Date(dateU.getTime());
 		String sql1 = "select t.days from tb_bookinfo b left join tb_booktype t on b.typeid=t.id where b.id="
@@ -41,7 +41,7 @@ public class BorrowDAO {
 		}
 		
 		
-		// ¼ÆËã¹é»¹Ê±¼ä
+		// è®¡ç®—å½’è¿˜æ—¶é—´
 		String date_str = String.valueOf(date);
 		//System.out.println("date_str="+date_str);
 		String dd = date_str.substring(8, 10);
@@ -50,7 +50,7 @@ public class BorrowDAO {
 				+ String.valueOf(Integer.parseInt(dd) + days);
 		//System.out.println("DD="+DD);
 		//java.sql.Date backTime = java.sql.Date.valueOf(DD);
-		//ÓÃÓÚ¼ÆËã¹é»¹µÄÊ±¼ä
+		//ç”¨äºè®¡ç®—å½’è¿˜çš„æ—¶é—´
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar ca=Calendar.getInstance();
 		ca.add(Calendar.DATE, days);
@@ -69,19 +69,19 @@ public class BorrowDAO {
 				+ date
 				+ "','" + backTime + "','" + operator + "')";
 		int falg = conn.executeUpdate(sql);
-		System.out.println("Ìí¼ÓÍ¼Êé½èÔÄĞÅÏ¢µÄSQL£º" + sql);
+		System.out.println("æ·»åŠ å›¾ä¹¦å€Ÿé˜…ä¿¡æ¯çš„SQLï¼š" + sql);
 		conn.close();
 		return falg;
 	}
 
-	// *************************************Í¼Êé¼Ì½è*********************************
+	// *************************************å›¾ä¹¦ç»§å€Ÿ*********************************
 	public int renew(int id) {
 		String sql0 = "SELECT bookid FROM tb_borrow WHERE id=" + id + "";
 		ResultSet rs1 = conn.executeQuery(sql0);
 		int flag = 0;
 		try {
 			if (rs1.next()) {
-				// »ñÈ¡ÏµÍ³ÈÕÆÚ
+				// è·å–ç³»ç»Ÿæ—¥æœŸ
 				Date dateU = new Date();
 				java.sql.Date date = new java.sql.Date(dateU.getTime());
 				String sql1 = "select t.days from tb_bookinfo b left join tb_booktype t on b.typeid=t.id where b.id="
@@ -94,7 +94,7 @@ public class BorrowDAO {
 					}
 				} catch (SQLException ex) {
 				}
-				// ¼ÆËã¹é»¹Ê±¼ä
+				// è®¡ç®—å½’è¿˜æ—¶é—´
 				String date_str = String.valueOf(date);
 				String dd = date_str.substring(8, 10);
 				String DD = date_str.substring(0, 8)
@@ -111,7 +111,7 @@ public class BorrowDAO {
 		return flag;
 	}
 
-	// *************************************Í¼Êé¹é»¹*********************************
+	// *************************************å›¾ä¹¦å½’è¿˜*********************************
 	public int back(int id, String operator) {
 		String sql0 = "SELECT readerid,bookid FROM tb_borrow WHERE id=" + id
 				+ "";
@@ -119,7 +119,7 @@ public class BorrowDAO {
 		int flag = 0;
 		try {
 			if (rs1.next()) {
-				// »ñÈ¡ÏµÍ³ÈÕÆÚ
+				// è·å–ç³»ç»Ÿæ—¥æœŸ
 				Date dateU = new Date();
 				java.sql.Date date = new java.sql.Date(dateU.getTime());
 				int readerid = rs1.getInt(1);
@@ -147,7 +147,7 @@ public class BorrowDAO {
 		return flag;
 	}
 
-	// *****************************²éÑ¯Í¼Êé½èÔÄĞÅÏ¢************************
+	// *****************************æŸ¥è¯¢å›¾ä¹¦å€Ÿé˜…ä¿¡æ¯************************
 	public Collection borrowinfo(String str) {
 		String sql = "select borr.*,book.bookname,book.price,pub.pubname,bs.name bookcasename,r.barcode from (select * from tb_borrow where ifback=0) as borr left join tb_bookinfo book on borr.bookid=book.id join tb_publishing pub on book.isbn=pub.isbn join tb_bookcase bs on book.bookcase=bs.id join tb_reader r on borr.readerid=r.id where r.barcode='"
 				+ str + "'";
@@ -167,20 +167,20 @@ public class BorrowDAO {
 				coll.add(form);
 			}
 		} catch (SQLException ex) {
-			System.out.println("½èÔÄĞÅÏ¢£º" + ex.getMessage());
+			System.out.println("å€Ÿé˜…ä¿¡æ¯ï¼š" + ex.getMessage());
 		}
 		conn.close();
 		return coll;
 	}
 
-	// *************************µ½ÆÚÌáĞÑ******************************************
+	// *************************åˆ°æœŸæé†’******************************************
 	public Collection bremind() {
 		Date dateU = new Date();
 		java.sql.Date date = new java.sql.Date(dateU.getTime());
 		String sql = "select borr.borrowTime,borr.backTime,book.barcode,book.bookname,r.name readername,r.barcode readerbarcode from tb_borrow borr join tb_bookinfo book on book.id=borr.bookid join tb_reader r on r.id=borr.readerid where borr.backTime <='"
 				+ date + "'";
 		ResultSet rs = conn.executeQuery(sql);
-		System.out.println("µ½Ê±ÌáĞÑµÄSQL£º" + sql);
+		System.out.println("åˆ°æ—¶æé†’çš„SQLï¼š" + sql);
 		Collection coll = new ArrayList();
 		BorrowForm form = null;
 		try {
@@ -193,7 +193,7 @@ public class BorrowDAO {
 				form.setReaderName(rs.getString(5));
 				form.setReaderBarcode(rs.getString(6));
 				coll.add(form);
-				System.out.println("Í¼ÊéÌõĞÎÂë£º" + rs.getString(3));
+				System.out.println("å›¾ä¹¦æ¡å½¢ç ï¼š" + rs.getString(3));
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -202,7 +202,7 @@ public class BorrowDAO {
 		return coll;
 	}
 
-	// *************************Í¼Êé½èÔÄ²éÑ¯******************************************
+	// *************************å›¾ä¹¦å€Ÿé˜…æŸ¥è¯¢******************************************
 	public Collection borrowQuery(String strif) {
 		String sql = "";
 		if (strif != "all" && strif != null && strif != "") {
@@ -212,7 +212,7 @@ public class BorrowDAO {
 			sql = "select * from (select borr.borrowTime,borr.backTime,book.barcode,book.bookname,r.name readername,r.barcode readerbarcode,borr.ifback from tb_borrow borr join tb_bookinfo book on book.id=borr.bookid join tb_reader r on r.id=borr.readerid) as borr";
 		}
 		ResultSet rs = conn.executeQuery(sql);
-		System.out.println("Í¼Êé½èÔÄ²éÑ¯µÄSQL£º" + sql);
+		System.out.println("å›¾ä¹¦å€Ÿé˜…æŸ¥è¯¢çš„SQLï¼š" + sql);
 		Collection coll = new ArrayList();
 		BorrowForm form = null;
 		try {
@@ -234,10 +234,10 @@ public class BorrowDAO {
 		return coll;
 	}
 
-	// *************************Í¼Êé½èÔÄÅÅĞĞ******************************************
+	// *************************å›¾ä¹¦å€Ÿé˜…æ’è¡Œ******************************************
 	public Collection bookBorrowSort() {
 		String sql = "select * from (SELECT bookid,count(bookid) as degree FROM tb_borrow group by bookid) as borr join (select b.*,c.name as bookcaseName,p.pubname,t.typename from tb_bookinfo b left join tb_bookcase c on b.bookcase=c.id join tb_publishing p on b.ISBN=p.ISBN join tb_booktype t on b.typeid=t.id where b.del=0) as book on borr.bookid=book.id order by borr.degree desc limit 10 ";
-		System.out.println("Í¼Êé½èÔÄÅÅĞĞ£º" + sql);
+		System.out.println("å›¾ä¹¦å€Ÿé˜…æ’è¡Œï¼š" + sql);
 		Collection coll = new ArrayList();
 		BorrowForm form = null;
 		ResultSet rs = conn.executeQuery(sql);
@@ -256,7 +256,7 @@ public class BorrowDAO {
 				form.setPubName(rs.getString(17));
 				form.setBookType(rs.getString(18));
 				coll.add(form);
-				System.out.print("RS£º" + rs.getString(4));
+				System.out.print("RSï¼š" + rs.getString(4));
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());

@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.BookCaseForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -15,7 +15,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹Ý¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -76,10 +76,10 @@ a:visited {
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="#">ÏµÍ³ÉèÖÃ</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="#">ç³»ç»Ÿè®¾ç½®</a></li>
 					<li>></li>
-					<li><a href="#"> Êé¼ÜÉèÖÃ</a></li>
+					<li><a href="#"> ä¹¦æž¶è®¾ç½®</a></li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -89,17 +89,17 @@ a:visited {
 				<table id="table1" border="0" cellspacing="" cellpadding="">
 					<tr>
 						<td align="center">
-							<button type="button" id="orangeButton">Ìí¼ÓÊé¼Ü
+							<button type="button" id="orangeButton">æ·»åŠ ä¹¦æž¶
 							
 						</td>
 					</tr>
 					<tr>
-						<td>ÔÝÎÞÊé¼ÜÐÅÏ¢£¡ÇëÌí¼ÓÊé¼Ü</td>
+						<td>æš‚æ— ä¹¦æž¶ä¿¡æ¯ï¼è¯·æ·»åŠ ä¹¦æž¶</td>
 					</tr>
 				</table>
 				<%
 					} else {
-						//Í¨¹ýµü´ú·½Ê½ÏÔÊ¾Êý¾Ý
+						//é€šè¿‡è¿­ä»£æ–¹å¼æ˜¾ç¤ºæ•°æ®
 						Iterator it = coll.iterator();
 						int ID = 0;
 						String name = "";
@@ -108,15 +108,15 @@ a:visited {
 					<tr>
 						<td align="right"><a
 							onClick="window.open('bookcase_add.jsp','','width=292,height=160,top=250,left=550')"><button
-									type="button" id="orangeButton">Ìí¼ÓÊé¼ÜÐÅÏ¢</a>
+									type="button" id="orangeButton">æ·»åŠ ä¹¦æž¶ä¿¡æ¯</a>
 							</button></td>
 					</tr>
 					<tr>
 						<td>
 							<table id="table2" border="1" cellspacing="0" cellpadding="0">
 								<tr>
-									<th width="60%" align="center">Êé¼ÜÃû³Æ</th>
-									<th>²Ù×÷</th>
+									<th width="60%" align="center">ä¹¦æž¶åç§°</th>
+									<th>æ“ä½œ</th>
 									</td>
 								</tr>
 								<%
@@ -130,10 +130,10 @@ a:visited {
 									<td align="center">
 										<button type="button" id="blueButton">
 											<a
-												onClick="window.open('bookCase?action=bookCaseModifyQuery&ID=<%=ID%>','','width=292,height=175,top=250,left=550')">ÐÞ¸Ä</a></a>
+												onClick="window.open('bookCase?action=bookCaseModifyQuery&ID=<%=ID%>','','width=292,height=175,top=250,left=550')">ä¿®æ”¹</a></a>
 										</button>
 										<button type="button" id="redButton">
-											<a href="bookCase?action=bookCaseDel&ID=<%=ID%>">É¾³ý</a>
+											<a href="bookCase?action=bookCaseDel&ID=<%=ID%>">åˆ é™¤</a>
 										</button>
 									</td>
 								</tr>

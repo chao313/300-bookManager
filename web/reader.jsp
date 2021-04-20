@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.dao.ReaderDAO"%>
 <%@ page import="com.actionForm.ReaderForm"%>
 <%@ page import="java.util.*"%>
@@ -19,7 +19,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -79,10 +79,10 @@ a:visited {
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">¶ÁÕß¹ÜÀí</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">è¯»è€…ç®¡ç†</a></li>
 					<li>></li>
-					<li>¶ÁÕßµµ°¸¹ÜÀí</li>
+					<li>è¯»è€…æ¡£æ¡ˆç®¡ç†</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -92,16 +92,16 @@ a:visited {
 				<table id="table1" border="0" cellspacing="" cellpadding="">
 					<tr>
 						<td align="center"><a href="reader_add.jsp" style="color:white;">
-							<button type="button" id="orangeButton">Ìí¼Ó¶ÁÕßÐÅÏ¢</button></a>
+							<button type="button" id="orangeButton">æ·»åŠ è¯»è€…ä¿¡æ¯</button></a>
 						</td>
 					</tr>
 					<tr>
-						<td>°¥ßÏ£¬Ã»ÓÐ¶ÁÕßÀàÐÍÀ²£¬ÇëÌí¼Ó¶ÁÕßµµ°¸£¡</td>
+						<td>å“Žå‘¦ï¼Œæ²¡æœ‰è¯»è€…ç±»åž‹å•¦ï¼Œè¯·æ·»åŠ è¯»è€…æ¡£æ¡ˆï¼</td>
 					</tr>
 				</table>
 				<%
 					} else {
-						//Í¨¹ýµü´ú·½Ê½ÏÔÊ¾Êý¾Ý
+						//é€šè¿‡è¿­ä»£æ–¹å¼æ˜¾ç¤ºæ•°æ®
 						Iterator it = coll.iterator();
 						int ID = 0;
 						String name = "";
@@ -115,21 +115,21 @@ a:visited {
 				<table id="table1" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td align="right"><a href="reader_add.jsp" style="color:white;"><button
-									type="button" id="orangeButton">Ìí¼Ó¶ÁÕßÐÅÏ¢</a>
+									type="button" id="orangeButton">æ·»åŠ è¯»è€…ä¿¡æ¯</a>
 							</button></td>
 					</tr>
 					<tr>
 						<td>
 							<table id="table2" border="1px" cellspacing="0" cellpadding="0">
 								<tr align="center" bgcolor="#e3F4F7">
-									<th width="13%" bgcolor="#00a9da">ÌõÐÎÂë</th>
-									<th width="7%" bgcolor="#00a9da">ÐÕÃû</th>
-									<th width="8%" bgcolor="#00a9da">¶ÁÕßÀàÐÍ</th>
-									<th width="10%" bgcolor="#00a9da">Ö¤¼þÀàÐÍ</th>
-									<th width="20%" bgcolor="#00a9da">Ö¤¼þºÅÂë</th>
-									<th width="12%" bgcolor="#00a9da">µç»°</th>
+									<th width="13%" bgcolor="#00a9da">æ¡å½¢ç </th>
+									<th width="7%" bgcolor="#00a9da">å§“å</th>
+									<th width="8%" bgcolor="#00a9da">è¯»è€…ç±»åž‹</th>
+									<th width="10%" bgcolor="#00a9da">è¯ä»¶ç±»åž‹</th>
+									<th width="20%" bgcolor="#00a9da">è¯ä»¶å·ç </th>
+									<th width="12%" bgcolor="#00a9da">ç”µè¯</th>
 									<th width="15%" bgcolor="#00a9da">Email</th>
-									<th width="15%" bgcolor="#00a9da">²Ù×÷</th>
+									<th width="15%" bgcolor="#00a9da">æ“ä½œ</th>
 								</tr>
 								<%
 									while (it.hasNext()) {
@@ -157,9 +157,9 @@ a:visited {
 									<td align="center"><%=email%></td>
 									<td align="center"><a
 										href="reader?action=readerModifyQuery&ID=<%=ID%>"><button
-												type="button" id="blueButton">ÐÞ¸Ä</button></a> &nbsp <a
+												type="button" id="blueButton">ä¿®æ”¹</button></a> &nbsp <a
 										href="reader?action=readerDel&ID=<%=ID%>"><button
-												type="button" id="redButton">É¾³ý</button></a></td>
+												type="button" id="redButton">åˆ é™¤</button></a></td>
 								</tr>
 								<%
 									}

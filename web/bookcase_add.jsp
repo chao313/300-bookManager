@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>Ìí¼ÓÊé¼ÜÐÅÏ¢</title>
+<title>æ·»åŠ ä¹¦æž¶ä¿¡æ¯</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -25,14 +25,14 @@
 	<form name="form1" method="post" action="bookCase?action=bookCaseAdd">
 		<table border="0px" style="width:270px;height:120px;">
 			<tr>
-				<td width="200px" aling="center"><font size="3" color="blue">Êé¼ÜÃû³Æ£º</font></td>
+				<td width="200px" aling="center"><font size="3" color="blue">ä¹¦æž¶åç§°ï¼š</font></td>
 				<td><input name="name" type="text" size="20"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input name="Submit3" type="submit" id="blueButton"
-					value="±£´æ">&nbsp;
+					value="ä¿å­˜">&nbsp;
 				<input name="Submit22" type="button" id="redButton"
-					value="¹Ø±Õ" onClick="window.close();"></td>
+					value="å…³é—­" onClick="window.close();"></td>
 			</tr>
 		</table>
 	</form>

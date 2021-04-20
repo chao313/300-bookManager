@@ -1,5 +1,5 @@
 <%@page import="com.actionForm.ParameterForm"%>
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -18,7 +18,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>ͼ��ݹ���ϵͳ</title>
+<title>图书馆管理系统</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -65,10 +65,10 @@ s
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">����ǰ��λ�ã�</li>
-					<li><a href="#">ϵͳ����</a></li>
+					<li style="margin-left: 25px;">您当前的位置：</li>
+					<li><a href="#">系统设置</a></li>
 					<li>></li>
-					<li><a href="#"> ��������</a></li>
+					<li><a href="#"> 参数设置</a></li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -82,20 +82,20 @@ s
 					%>
 					<table id="table" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td width="100px">��֤�ѣ�</td>
+							<td width="100px">办证费：</td>
 							<td align="left"><input name="cost" type="text" id="cost"
-								value="<%=cost%>" size="30"> (Ԫ)</td>
+								value="<%=cost%>" size="30"> (元)</td>
 						</tr>
 						<tr>
-							<td>��Ч���ޣ�</td>
+							<td>有效期限：</td>
 							<td align="left"><input name="validity" type="text"
-								id="validity" size="30" value="<%=validity%>"> (��)</td>
+								id="validity" size="30" value="<%=validity%>"> (月)</td>
 						</tr>
 						<tr>
 							<td colspan="2"><input name="Submit" type="submit"
-								class="btn_grey" value="����">
+								class="btn_grey" value="保存">
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input name="Submit2"
-								type="reset" class="btn_grey" value="ȡ��"></td>
+								type="reset" class="btn_grey" value="取消"></td>
 						</tr>
 					</table>
 					<!-- </form> -->

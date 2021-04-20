@@ -9,19 +9,19 @@ import java.*;
 public class ManagerDAO {
 	private ConnDB conn = new ConnDB();
 
-	// ²éÑ¯Êı¾İ
+	// æŸ¥è¯¢æ•°æ®
 	public Collection query(String queryif) {
 		ManagerForm managerForm = null;
 		Collection managercoll = new ArrayList();
 		String sql = "";
-		if (queryif == null || queryif == "" || queryif == "all") { // µ±²ÎÊıqueryifµÄÖµÎªnull¡¢all»ò¿ÕÊ±²éÑ¯È«²¿Êı¾İ
+		if (queryif == null || queryif == "" || queryif == "all") { // å½“å‚æ•°queryifçš„å€¼ä¸ºnullã€allæˆ–ç©ºæ—¶æŸ¥è¯¢å…¨éƒ¨æ•°æ®
 			sql = "select m.*,p.sysset,p.readerset,p.bookset,p.borrowback,p.sysquery from tb_manager m left join tb_purview p on m.id=p.id";
 		} else {
 			sql = "select m.*,p.sysset,p.readerset,p.bookset,p.borrowback,p.sysquery from tb_manager m left join tb_purview p on m.id=p.id where m.name='"
-					+ queryif + "'"; // ´Ë´¦ĞèÒªÓ¦ÓÃ×óÁ¬½Ó
+					+ queryif + "'"; // æ­¤å¤„éœ€è¦åº”ç”¨å·¦è¿æ¥
 		}
-		ResultSet rs = conn.executeQuery(sql); // Ö´ĞĞSQLÓï¾ä
-		try { // ²¶×½Òì³£ĞÅÏ¢
+		ResultSet rs = conn.executeQuery(sql); // æ‰§è¡ŒSQLè¯­å¥
+		try { // æ•æ‰å¼‚å¸¸ä¿¡æ¯
 			while (rs.next()) {
 				managerForm = new ManagerForm();
 				managerForm.setId(Integer.valueOf(rs.getString(1)));
@@ -32,15 +32,15 @@ public class ManagerDAO {
 				managerForm.setBookset(rs.getInt(6));
 				managerForm.setBorrowback(rs.getInt(7));
 				managerForm.setSysquery(rs.getInt(8));
-				managercoll.add(managerForm); // ½«²éÑ¯½á¹û±£´æµ½Collection¼¯ºÏÖĞ
+				managercoll.add(managerForm); // å°†æŸ¥è¯¢ç»“æœä¿å­˜åˆ°Collectioné›†åˆä¸­
 			}
 		} catch (SQLException e) {
 		}
-		return managercoll; // ·µ»Ø²éÑ¯½á¹û
+		return managercoll; // è¿”å›æŸ¥è¯¢ç»“æœ
 	}
 
 	/*********************************************************/
-	// ²éÑ¯È¨ÏŞĞÅÏ¢
+	// æŸ¥è¯¢æƒé™ä¿¡æ¯
 	public ManagerForm query_p(String str) {
 		ManagerForm managerForm1 = null;
 		String sql = "select m.*,p.sysset,p.readerset,p.bookset,p.borrowback,p.sysquery from tb_manager m left join tb_purview p on m.id=p.id where m.name='"
@@ -67,7 +67,7 @@ public class ManagerDAO {
 		return managerForm1;
 	}
 
-	// ¹ÜÀíÔ±Éí·İÑéÖ¤
+	// ç®¡ç†å‘˜èº«ä»½éªŒè¯
 	public int checkManager(ManagerForm managerForm) {
 		int flag = 0;
 		ChStr chStr = new ChStr();
@@ -76,7 +76,7 @@ public class ManagerDAO {
 		ResultSet rs = conn.executeQuery(sql);
 		try {
 			if (rs.next()) {
-				String pwd = chStr.filterStr(managerForm.getPwd()); // »ñÈ¡ÊäÈëµÄÃÜÂë²¢¹ıÂËÊäÈë×Ö·û´®ÖĞµÄÎ£ÏÕ×Ö·û
+				String pwd = chStr.filterStr(managerForm.getPwd()); // è·å–è¾“å…¥çš„å¯†ç å¹¶è¿‡æ»¤è¾“å…¥å­—ç¬¦ä¸²ä¸­çš„å±é™©å­—ç¬¦
 				if (pwd.equals(rs.getString(3))) {
 					flag = 1;
 				} else {
@@ -93,13 +93,13 @@ public class ManagerDAO {
 		return flag;
 	}
 
-	// ĞŞ¸ÄÊ±Ó¦ÓÃµÄ²éÑ¯·½·¨
+	// ä¿®æ”¹æ—¶åº”ç”¨çš„æŸ¥è¯¢æ–¹æ³•
 	public ManagerForm query_update(ManagerForm managerForm) {
 		ManagerForm managerForm1 = null;
 		String sql = "select m.*,p.sysset,p.readerset,p.bookset,p.borrowback,p.sysquery from tb_manager m left join tb_purview p on m.id=p.id where m.id="
 				+ managerForm.getId() + "";
 
-		ResultSet rs = conn.executeQuery(sql); // Ö´ĞĞ²éÑ¯Óï¾ä
+		ResultSet rs = conn.executeQuery(sql); // æ‰§è¡ŒæŸ¥è¯¢è¯­å¥
 		try {
 			while (rs.next()) {
 				managerForm1 = new ManagerForm();
@@ -113,14 +113,14 @@ public class ManagerDAO {
 				managerForm1.setSysquery(rs.getInt(8));
 			}
 		} catch (SQLException ex) {
-			ex.printStackTrace(); // Êä³öÒì³£ĞÅÏ¢
+			ex.printStackTrace(); // è¾“å‡ºå¼‚å¸¸ä¿¡æ¯
 		} finally {
-			conn.close(); // ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+			conn.close(); // å…³é—­æ•°æ®åº“è¿æ¥
 		}
 		return managerForm1;
 	}
 
-	// ¸ü¸Ä¿ÚÁîÊ±Ó¦ÓÃµÄ²éÑ¯·½·¨
+	// æ›´æ”¹å£ä»¤æ—¶åº”ç”¨çš„æŸ¥è¯¢æ–¹æ³•
 	public ManagerForm query_pwd(ManagerForm managerForm) {
 		ManagerForm managerForm1 = null;
 		String sql = "SELECT * FROM tb_manager WHERE name='"
@@ -141,7 +141,7 @@ public class ManagerDAO {
 		return managerForm1;
 	}
 
-	// Ìí¼ÓÊı¾İ
+	// æ·»åŠ æ•°æ®
 	public int insert(ManagerForm managerForm) {
 		String sql1 = "SELECT * FROM tb_manager WHERE name='"
 				+ managerForm.getName() + "'";
@@ -156,7 +156,7 @@ public class ManagerDAO {
 						+ managerForm.getName() + "','" + managerForm.getPwd()
 						+ "')";
 				falg = conn.executeUpdate(sql);
-				System.out.println("Ìí¼Ó¹ÜÀíÔ±ĞÅÏ¢µÄSQL£º" + sql);
+				System.out.println("æ·»åŠ ç®¡ç†å‘˜ä¿¡æ¯çš„SQLï¼š" + sql);
 			}
 		} catch (SQLException ex) {
 			falg = 0;
@@ -166,22 +166,22 @@ public class ManagerDAO {
 		return falg;
 	}
 
-	// ÉèÖÃ¹ÜÀíÔ±È¨ÏŞ
+	// è®¾ç½®ç®¡ç†å‘˜æƒé™
 	public int update(ManagerForm managerForm) {
 		String sql1 = "SELECT * FROM tb_purview WHERE id="
 				+ managerForm.getId() + "";
-		ResultSet rs = conn.executeQuery(sql1); // ²éÑ¯ÒªÉèÖÃÈ¨ÏŞµÄ¹ÜÀíÔ±µÄÈ¨ÏŞĞÅÏ¢
+		ResultSet rs = conn.executeQuery(sql1); // æŸ¥è¯¢è¦è®¾ç½®æƒé™çš„ç®¡ç†å‘˜çš„æƒé™ä¿¡æ¯
 		String sql = "";
 		int falg = 0;
-		try { // ²¶×½Òì³£ĞÅÏ¢
-			if (rs.next()) { // µ±ÒÑ¾­ÉèÖÃÈ¨ÏŞÊ±£¬Ö´ĞĞ¸üĞÂÓï¾ä
+		try { // æ•æ‰å¼‚å¸¸ä¿¡æ¯
+			if (rs.next()) { // å½“å·²ç»è®¾ç½®æƒé™æ—¶ï¼Œæ‰§è¡Œæ›´æ–°è¯­å¥
 				sql = "Update tb_purview set sysset=" + managerForm.getSysset()
 						+ ",readerset=" + managerForm.getReaderset()
 						+ ",bookset=" + managerForm.getBookset()
 						+ ",borrowback=" + managerForm.getBorrowback()
 						+ ",sysquery=" + managerForm.getSysquery()
 						+ " where id=" + managerForm.getId() + "";
-			} else { // Î´ÉèÖÃÈ¨ÏŞÊ±£¬Ö´ĞĞ²åÈëÓï¾ä
+			} else { // æœªè®¾ç½®æƒé™æ—¶ï¼Œæ‰§è¡Œæ’å…¥è¯­å¥
 				sql = "INSERT INTO tb_purview values(" + managerForm.getId()
 						+ "," + managerForm.getSysset() + ","
 						+ managerForm.getReaderset() + ","
@@ -190,41 +190,41 @@ public class ManagerDAO {
 						+ managerForm.getSysquery() + ")";
 			}
 			falg = conn.executeUpdate(sql);
-			System.out.println("ĞŞ¸ÄÊı¾İÊ±µÄSQL£º" + sql);
+			System.out.println("ä¿®æ”¹æ•°æ®æ—¶çš„SQLï¼š" + sql);
 		} catch (SQLException ex) {
-			falg = 0; // ±íÊ¾ÉèÖÃ¹ÜÀíÔ±È¨ÏŞÊ§°Ü
+			falg = 0; // è¡¨ç¤ºè®¾ç½®ç®¡ç†å‘˜æƒé™å¤±è´¥
 		} finally {
-			conn.close(); // ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+			conn.close(); // å…³é—­æ•°æ®åº“è¿æ¥
 		}
 		return falg;
 	}
 
-	// ĞŞ¸Ä¹ÜÀíÔ±ÃÜÂë
+	// ä¿®æ”¹ç®¡ç†å‘˜å¯†ç 
 	public int updatePwd(ManagerForm managerForm) {
 		String sql = "UPDATE tb_manager SET pwd='" + managerForm.getPwd()
 				+ "' where name='" + managerForm.getName() + "'";
 		int ret = conn.executeUpdate(sql);
-		System.out.println("ĞŞ¸Ä¹ÜÀíÔ±ÃÜÂëÊ±µÄSQL£º" + sql);
+		System.out.println("ä¿®æ”¹ç®¡ç†å‘˜å¯†ç æ—¶çš„SQLï¼š" + sql);
 		conn.close();
 		return ret;
 	}
 
-	// É¾³ıÊı¾İ
+	// åˆ é™¤æ•°æ®
 	public int delete(ManagerForm managerForm) {
 		int flag = 0;
-		try { // ²¶×½Òì³£ĞÅÏ¢
+		try { // æ•æ‰å¼‚å¸¸ä¿¡æ¯
 			String sql = "DELETE FROM tb_manager where id="
 					+ managerForm.getId() + "";
-			flag = conn.executeUpdate(sql); // Ö´ĞĞÉ¾³ı¹ÜÀíÔ±ĞÅÏ¢µÄÓï¾ä
+			flag = conn.executeUpdate(sql); // æ‰§è¡Œåˆ é™¤ç®¡ç†å‘˜ä¿¡æ¯çš„è¯­å¥
 			if (flag != 0) {
 				String sql1 = "DELETE FROM tb_purview where id="
 						+ managerForm.getId() + "";
-				conn.executeUpdate(sql1); // Ö´ĞĞÉ¾³ıÈ¨ÏŞĞÅÏ¢µÄÓï¾ä
+				conn.executeUpdate(sql1); // æ‰§è¡Œåˆ é™¤æƒé™ä¿¡æ¯çš„è¯­å¥
 			}
 		} catch (Exception e) {
-			System.out.println("É¾³ı¹ÜÀíÔ±ĞÅÏ¢Ê±²úÉúµÄ´íÎó£º" + e.getMessage()); // Êä³ö´íÎóĞÅÏ¢
+			System.out.println("åˆ é™¤ç®¡ç†å‘˜ä¿¡æ¯æ—¶äº§ç”Ÿçš„é”™è¯¯ï¼š" + e.getMessage()); // è¾“å‡ºé”™è¯¯ä¿¡æ¯
 		} finally {
-			conn.close(); // ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+			conn.close(); // å…³é—­æ•°æ®åº“è¿æ¥
 		}
 		return flag;
 	}

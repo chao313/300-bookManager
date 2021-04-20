@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.dao.ReaderDAO"%>
 <%@ page import="com.dao.ReaderTypeDAO"%>
 <%@ page import="com.actionForm.ReaderForm"%>
@@ -26,10 +26,10 @@
 	
 function check(form){
 	if(form.name.value==""){
-		alert("ÇëÊäÈë¶ÁÕßĞÕÃû!");form.name.focus();return false;
+		alert("è¯·è¾“å…¥è¯»è€…å§“å!");form.name.focus();return false;
 	}
 	if(form.paperNO.value==""){
-		alert("ÇëÊäÈëÖ¤¼şºÅÂë!");form.paperNO.focus();return false;
+		alert("è¯·è¾“å…¥è¯ä»¶å·ç !");form.paperNO.focus();return false;
 	}
 }
 
@@ -38,7 +38,7 @@ function check(form){
 <head>
 <base href="<%=basePath%>">
 
-<title>Í¼Êé¹İ¹ÜÀíÏµÍ³</title>
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -66,12 +66,12 @@ function check(form){
 			<div class="right-nav">
 				<ul>
 					<li><img src="images/home.png"></li>
-					<li style="margin-left: 25px;">Äúµ±Ç°µÄÎ»ÖÃ£º</li>
-					<li><a href="index.jsp">¶ÁÕß¹ÜÀí</a></li>
+					<li style="margin-left: 25px;">æ‚¨å½“å‰çš„ä½ç½®ï¼š</li>
+					<li><a href="index.jsp">è¯»è€…ç®¡ç†</a></li>
 					<li>></li>
-					<li>¶ÁÕßµµ°¸¹ÜÀí</li>
+					<li>è¯»è€…æ¡£æ¡ˆç®¡ç†</li>
 					<li>></li>
-					<li>ĞŞ¸Ä¶ÁÕßĞÅÏ¢</li>
+					<li>ä¿®æ”¹è¯»è€…ä¿¡æ¯</li>
 				</ul>
 			</div>
 			<div id="right-buttom" style="overflow: auto;">
@@ -98,30 +98,30 @@ function check(form){
 					<table id="table1" width="600" height="432" border="0" cellpadding="0"
 						cellspacing="0" bgcolor="#FFFFFF">
 						<tr>
-							<td width="173" align="center">ĞÕ&nbsp;&nbsp;&nbsp;&nbsp;Ãû£º</td>
+							<td width="173" align="center">å§“&nbsp;&nbsp;&nbsp;&nbsp;åï¼š</td>
 							<td width="427" height="39"><input name="name" type="text"
 								value="<%=name%>" readonly="yes"> * <input name="id"
 								type="hidden" id="id" value="<%=ID%>"></td>
 						</tr>
 						<tr>
-							<td width="173" align="center">ĞÔ&nbsp;&nbsp;&nbsp;&nbsp;±ğ£º</td>
+							<td width="173" align="center">æ€§&nbsp;&nbsp;&nbsp;&nbsp;åˆ«ï¼š</td>
 							<td height="35"><input name="sex" type="radio"
-								class="noborder" id="radiobutton" value="ÄĞ"
-								<%if ("ÄĞ".equals(sex))
+								class="noborder" id="radiobutton" value="ç”·"
+								<%if ("ç”·".equals(sex))
 				out.println("checked");%>> <label
-								for="radiobutton">ÄĞ </label> <label> <input name="sex"
-									type="radio" class="noborder" value="Å®"
-									<%if ("Å®".equals(sex))
-				out.println("checked");%>> Å®
+								for="radiobutton">ç”· </label> <label> <input name="sex"
+									type="radio" class="noborder" value="å¥³"
+									<%if ("å¥³".equals(sex))
+				out.println("checked");%>> å¥³
 							</label></td>
 						</tr>
 						<tr>
-							<td align="center">Ìõ&nbsp;ĞÎ&nbsp;Âë£º</td>
+							<td align="center">æ¡&nbsp;å½¢&nbsp;ç ï¼š</td>
 							<td><input name="barcode" type="text" id="barcode"
 								value="<%=barcode%>" readonly="yes"></td>
 						</tr>
 						<tr>
-							<td align="center">¶ÁÕßÀàĞÍ£º</td>
+							<td align="center">è¯»è€…ç±»å‹ï¼š</td>
 							<td><select name="typeid" class="wenbenkuang" id="typeid">
 									<%
 										while (it.hasNext()) {
@@ -139,63 +139,63 @@ function check(form){
 							</select></td>
 						</tr>
 						<tr>
-							<td align="center">Ö°&nbsp;&nbsp;&nbsp;&nbsp;Òµ£º</td>
+							<td align="center">èŒ&nbsp;&nbsp;&nbsp;&nbsp;ä¸šï¼š</td>
 							<td><input name="vocation" type="text" id="vocation"
 								value="<%=vocation%>"></td>
 						</tr>
 						<tr>
-							<td align="center">³öÉúÈÕÆÚ£º</td>
+							<td align="center">å‡ºç”Ÿæ—¥æœŸï¼š</td>
 							<td><input name="birthday" type="text" id="birthday"
 								value="<%=birthday%>"></td>
 						</tr>
 						<tr>
-							<td align="center">ÓĞĞ§Ö¤¼ş£º</td>
+							<td align="center">æœ‰æ•ˆè¯ä»¶ï¼š</td>
 							<td><select name="paperType" class="wenbenkuang"
 								id="paperType">
-									<option value="Éí·İÖ¤"
-										<%if ("Éí·İÖ¤".equals(paperType))
-				out.println(" selected");%>>Éí·İÖ¤</option>
-									<option value="Ñ§ÉúÖ¤"
-										<%if ("Ñ§ÉúÖ¤".equals(paperType))
-				out.println(" selected");%>>Ñ§ÉúÖ¤</option>
-									<option value="¾ü¹ÙÖ¤"
-										<%if ("¾ü¹ÙÖ¤".equals(paperType))
-				out.println(" selected");%>>¾ü¹ÙÖ¤</option>
-									<option value="¹¤×÷Ö¤"
-										<%if ("¹¤×÷Ö¤".equals(paperType))
-				out.println(" selected");%>>¹¤×÷Ö¤</option>
+									<option value="èº«ä»½è¯"
+										<%if ("èº«ä»½è¯".equals(paperType))
+				out.println(" selected");%>>èº«ä»½è¯</option>
+									<option value="å­¦ç”Ÿè¯"
+										<%if ("å­¦ç”Ÿè¯".equals(paperType))
+				out.println(" selected");%>>å­¦ç”Ÿè¯</option>
+									<option value="å†›å®˜è¯"
+										<%if ("å†›å®˜è¯".equals(paperType))
+				out.println(" selected");%>>å†›å®˜è¯</option>
+									<option value="å·¥ä½œè¯"
+										<%if ("å·¥ä½œè¯".equals(paperType))
+				out.println(" selected");%>>å·¥ä½œè¯</option>
 							</select></td>
 						</tr>
 						<tr>
-							<td align="center">Ö¤¼şºÅÂë£º</td>
+							<td align="center">è¯ä»¶å·ç ï¼š</td>
 							<td><input name="paperNO" type="text" id="paperNO"
 								value="<%=paperNO%>"> *</td>
 						</tr>
 						<tr>
-							<td align="center">µç&nbsp;&nbsp;&nbsp;&nbsp;»°£º</td>
+							<td align="center">ç”µ&nbsp;&nbsp;&nbsp;&nbsp;è¯ï¼š</td>
 							<td><input name="tel" type="text" id="tel" value="<%=tel%>"></td>
 						</tr>
 						<tr>
-							<td align="center">Email£º</td>
+							<td align="center">Emailï¼š</td>
 							<td><input name="email" type="text" id="email"
 								value="<%=email%>" size="50"> <input name="operator"
 								type="hidden" id="operator" value="<%=operator%>"></td>
 						</tr>
 						<tr>
-							<td height="30" align="center">²Ù&nbsp;×÷&nbsp;Ô±£º</td>
+							<td height="30" align="center">æ“&nbsp;ä½œ&nbsp;å‘˜ï¼š</td>
 							<td><input name="operator" type="text" id="operator"
 								value="<%=operator%>" readonly="yes"></td>
 						</tr>
 						<tr>
-							<td align="center">±¸&nbsp;&nbsp;&nbsp;&nbsp;×¢£º</td>
+							<td align="center">å¤‡&nbsp;&nbsp;&nbsp;&nbsp;æ³¨ï¼š</td>
 							<td><textarea name="remark" cols="50" rows="5"
 									class="wenbenkuang" id="remark"><%=remark%></textarea></td>
 						</tr>
 						<tr>
 							<td align="center">&nbsp;</td>
 							<td><input name="Submit" type="submit" class="btn_grey"
-								value="±£´æ" onClick="return check(form1)"> &nbsp; <input
-								name="Submit2" type="button" class="btn_grey" value="·µ»Ø"
+								value="ä¿å­˜" onClick="return check(form1)"> &nbsp; <input
+								name="Submit2" type="button" class="btn_grey" value="è¿”å›"
 								onClick="history.back()"></td>
 						</tr>
 					</table>
