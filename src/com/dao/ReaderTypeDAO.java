@@ -15,9 +15,9 @@ public class ReaderTypeDAO {
 		Collection readerTypeColl = new ArrayList();
 		String sql = "";
 		if (strif != "all" && strif != null && strif != "") {
-			sql = "select * from tb_readerType where " + strif + "";
+			sql = "select * from tb_readertype where " + strif + "";
 		} else {
-			sql = "select * from tb_readerType";
+			sql = "select * from tb_readertype";
 		}
 		ResultSet rs = conn.executeQuery(sql);
 		try {
@@ -37,7 +37,7 @@ public class ReaderTypeDAO {
 	// 用于修改的查询
 	public ReaderTypeForm queryM(ReaderTypeForm readerTypeForm) {
 		ReaderTypeForm readerTypeForm1 = null;
-		String sql = "select * from tb_readerType where id="
+		String sql = "select * from tb_readertype where id="
 				+ readerTypeForm.getId() + "";
 		System.out.println("修改时的SQL：" + sql);
 		ResultSet rs = conn.executeQuery(sql);
@@ -57,7 +57,7 @@ public class ReaderTypeDAO {
 
 	// 添加数据
 	public int insert(ReaderTypeForm readerTypeForm) {
-		String sql1 = "SELECT * FROM tb_readerType WHERE name='"
+		String sql1 = "SELECT * FROM tb_readertype WHERE name='"
 				+ readerTypeForm.getName() + "'";
 		ResultSet rs = conn.executeQuery(sql1);
 		String sql = "";
@@ -66,7 +66,7 @@ public class ReaderTypeDAO {
 			if (rs.next()) {
 				falg = 2;
 			} else {
-				sql = "Insert into tb_readerType (name,number) values('"
+				sql = "Insert into tb_readertype (name,number) values('"
 						+ readerTypeForm.getName() + "',"
 						+ readerTypeForm.getNumber() + ")";
 				falg = conn.executeUpdate(sql);
@@ -82,7 +82,7 @@ public class ReaderTypeDAO {
 
 	// 修改数据
 	public int update(ReaderTypeForm readerTypeForm) {
-		String sql = "Update tb_readerType set name='"
+		String sql = "Update tb_readertype set name='"
 				+ readerTypeForm.getName() + "',number="
 				+ readerTypeForm.getNumber() + " where id="
 				+ readerTypeForm.getId() + "";
@@ -100,7 +100,7 @@ public class ReaderTypeDAO {
 		int flag = 0;
 		try {
 			if (!rs.next()) {
-				String sql = "Delete from tb_readerType where id="
+				String sql = "Delete from tb_readertype where id="
 						+ readerTypeForm.getId() + "";
 				flag = conn.executeUpdate(sql);
 				System.out.println("删除时的SQL：" + sql);

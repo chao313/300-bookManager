@@ -14,10 +14,10 @@ public class ReaderDAO {
 		Collection readerColl = new ArrayList();
 		String sql = "";
 		if (strif != "all" && strif != null && strif != "") {
-			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id where "
+			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readertype t on r.typeid=t.id where "
 					+ strif + "";
 		} else {
-			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id";
+			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readertype t on r.typeid=t.id";
 		}
 		ResultSet rs = conn.executeQuery(sql);
 		String birthday = "";
@@ -54,10 +54,10 @@ public class ReaderDAO {
 		ReaderForm readerForm1 = null;
 		String sql = "";
 		if (readerForm.getId() != null) {
-			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id where r.id="
+			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readertype t on r.typeid=t.id where r.id="
 					+ readerForm.getId() + "";
 		} else if (readerForm.getBarcode() != null) {
-			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readerType t on r.typeid=t.id where r.barcode="
+			sql = "select r.*,t.name as typename,t.number from tb_reader r left join tb_readertype t on r.typeid=t.id where r.barcode="
 					+ readerForm.getBarcode() + "";
 		}
 		System.out.println("修改读者信息时的SQL：" + sql);

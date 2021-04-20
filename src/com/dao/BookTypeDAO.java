@@ -14,9 +14,9 @@ public class BookTypeDAO {
 		Collection bookTypeColl = new ArrayList();
 		String sql = "";
 		if (strif != "all" && strif != null && strif != "") {
-			sql = "select * from tb_bookType where " + strif + "";
+			sql = "select * from tb_booktype where " + strif + "";
 		} else {
-			sql = "select * from tb_bookType";
+			sql = "select * from tb_booktype";
 		}
 		ResultSet rs = conn.executeQuery(sql);
 		try {
@@ -37,7 +37,7 @@ public class BookTypeDAO {
 	// 用于修改的查询
 	public BookTypeForm queryM(BookTypeForm bookTypeForm) {
 		BookTypeForm bookTypeForm1 = null;
-		String sql = "select * from tb_bookType where id="
+		String sql = "select * from tb_booktype where id="
 				+ bookTypeForm.getId() + "";
 		System.out.println("修改时的SQL：" + sql);
 		ResultSet rs = conn.executeQuery(sql);
@@ -56,7 +56,7 @@ public class BookTypeDAO {
 
 	// 添加数据
 	public int insert(BookTypeForm bookTypeForm) {
-		String sql1 = "SELECT * FROM tb_bookType WHERE typename='"
+		String sql1 = "SELECT * FROM tb_booktype WHERE typename='"
 				+ bookTypeForm.getTypeName() + "'";
 		ResultSet rs = conn.executeQuery(sql1);
 		String sql = "";
@@ -65,7 +65,7 @@ public class BookTypeDAO {
 			if (rs.next()) {
 				falg = 2;
 			} else {
-				sql = "Insert into tb_bookType (typename,days) values('"
+				sql = "Insert into tb_booktype (typename,days) values('"
 						+ bookTypeForm.getTypeName() + "',"
 						+ bookTypeForm.getDays() + ")";
 				falg = conn.executeUpdate(sql);
@@ -81,7 +81,7 @@ public class BookTypeDAO {
 
 	// 修改数据
 	public int update(BookTypeForm bookTypeForm) {
-		String sql = "Update tb_bookType set typename='"
+		String sql = "Update tb_booktype set typename='"
 				+ bookTypeForm.getTypeName() + "',days="
 				+ bookTypeForm.getDays() + " where id=" + bookTypeForm.getId()
 				+ "";
@@ -99,7 +99,7 @@ public class BookTypeDAO {
 		int falg = 0;
 		try {
 			if (!rs.next()) {
-				String sql = "Delete from tb_bookType where id="
+				String sql = "Delete from tb_booktype where id="
 						+ bookTypeForm.getId() + "";
 				falg = conn.executeUpdate(sql);
 				System.out.println("删除时的SQL：" + sql);
